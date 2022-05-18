@@ -19,11 +19,11 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Tivo - SaaS App HTML Landing Page Template</title>
+    <title>AASTU queue management system</title>
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/fontawesome-all.css" rel="stylesheet">
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
@@ -42,18 +42,18 @@
     <header id="header" class="header">
         <div class="header-content">
             <div class="container">
-                <div class="row">
+                <div class="row" align="center">
                     <div class="col-lg-6 col-xl-5">
                         <div class="text-container">
-                            <h1>SaaS App HTML Landing Page</h1>
-                            <p class="p-large">Use Tivo to automate your marketing actions in order to reach a much larger audience</p>
+                            <h1>Welcome to our Community</h1>
+                            <p class="p-large">Book your desire to get our service and manage your time</p>
                             <a class="btn-solid-lg page-scroll" href="{{url('booking')}}">BOOKING</a>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6 col-xl-7">
-                        <div class="image-container">
-                            <div class="img-wrapper">
-                                <img class="img-fluid" src="images/header-software-app.png" alt="alternative">
+                        <div class="image-container" >
+                            <div class="img-wrapper"  >
+                                <img class="img-fluid" style="border-radius: 20px; padding-top: 30px" src="images/header-software-app.png" alt="alternative">
                             </div> <!-- end of img-wrapper -->
                         </div> <!-- end of image-container -->
                     </div> <!-- end of col -->
@@ -461,34 +461,11 @@
 
 
     <!-- Video -->
-    <div id="video" class="basic-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-
-                    <!-- Video Preview -->
-                    <div class="image-container">
-                        <div class="video-wrapper">
-                            <a class="popup-youtube" href="https://www.youtube.com/watch?v=fLCjQJCekTs" data-effect="fadeIn">
-                                <img class="img-fluid" src="images/video-image.png" alt="alternative">
-                                <span class="video-play-button">
-                                    <span></span>
-                                </span>
-                            </a>
-                        </div> <!-- end of video-wrapper -->
-                    </div> <!-- end of image-container -->
-                    <!-- end of video preview -->
-
-                    <div class="p-heading">What better way to show off Tivo marketing automation saas app than presenting you some great situations of each module and tool available to users in a video</div>        
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-2 -->
-    <!-- end of video -->
+    
 
 
     <!-- Pricing -->
-    <div id="pricing" class="cards-2">
+    {{-- <div id="pricing" class="cards-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -598,12 +575,12 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of cards-2 -->
+    </div> <!-- end of cards-2 --> --}}
     <!-- end of pricing -->
 
 
     <!-- Testimonials -->
-    <div class="slider-2">
+    {{-- <div class="slider-2">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">      
@@ -675,14 +652,14 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of slider-2 -->
+    </div> <!-- end of slider-2 --> --}}
     <!-- end of testimonials -->
 
 
     <!-- Newsletter -->
     <div class="form">
         <div class="container">
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-lg-12">
                     <div class="text-container">
                         <div class="above-heading">NEWSLETTER</div>
@@ -709,8 +686,8 @@
                         <!-- end of newsletter form -->
 
                     </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
+                </div> <!-- end of col --> --}}
+            {{-- </div> <!-- end of row --> --}}
             <div class="row">
                 <div class="col-lg-12">
                     <div class="icon-container">
@@ -759,8 +736,8 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="footer-col first">
-                        <h4>About Tivo</h4>
-                        <p class="p-small">We're passionate about designing and developing one of the best marketing apps in the market</p>
+                        <h4>About Us</h4>
+                        <p class="p-small">We're passionate about Serving and Providing materials with standard qualities.</p>
                     </div>
                 </div> <!-- end of col -->
                 <div class="col-md-4">
@@ -784,11 +761,11 @@
                         <ul class="list-unstyled li-space-lg p-small">
                             <li class="media">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <div class="media-body">22 Innovative, San Francisco, CA 94043, US</div>
+                                <div class="media-body">Kilinto</div>
                             </li>
                             <li class="media">
                                 <i class="fas fa-envelope"></i>
-                                <div class="media-body"><a class="white" href="mailto:contact@tivo.com">contact@tivo.com</a> <i class="fas fa-globe"></i><a class="white" href="#your-link">www.tivo.com</a></div>
+                                <div class="media-body"><a class="white" href="mailto:contact@tivo.com">contact@aastu.com</a> <i class="fas fa-globe"></i><a class="white" href="#your-link">www.astuque.com</a></div>
                             </li>
                         </ul>
                     </div> 
@@ -804,7 +781,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright © 2020 <a href="https://inovatik.com">Template by Inovatik</a></p>
+                    <p class="p-small">Copyright © AASTU </p>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->
