@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Tivo - SaaS App HTML Landing Page Template</title>
+  <title>AASTU queue management system</title>
    
-	
+  
     
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -77,10 +77,21 @@
                 </div>
                 
                 <div class="col-lg-4 pt-3 pt-lg-0">
+
+                    <!-- Ads Start -->
+                    <div class="bg-light py-2 px-4 mb-3">
+                        <h3 class="m-0">Open to promo</h3>
+                    </div>
+                    <div class="mb-3 pb-3">
+                        <a href=""><img class="img-fluid" src="img/news-500x280-4.jpg" alt=""></a>
+                    </div>
+
+                    
+                    <!-- Ads End -->
                     <!-- Social Follow Start -->
-                    <div class="pb-3">
+                    <div class="pb-3" >
                         <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Follow Us</h3>
+                            <h3 class="m-0">Follow us</h3>
                         </div>
                         <div class="d-flex mb-3">
                             <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
@@ -98,23 +109,19 @@
                                 <small class="fab fa-instagram mr-2"></small><small>12,345 Followers</small>
                             </a>
                         </div>
-                        <div class="d-flex mb-3">
+                        {{-- <div class="d-flex mb-3">
                             <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #DC472E;">
                                 <small class="fab fa-youtube mr-2"></small><small>12,345 Subscribers</small>
                             </a>
                             <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #1AB7EA;">
                                 <small class="fab fa-vimeo-v mr-2"></small><small>12,345 Followers</small>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- Social Follow End -->
 
                    
-                    <!-- Ads Start -->
-                    <div class="mb-3 pb-3">
-                        <a href=""><img class="img-fluid" src="img/news-500x280-4.jpg" alt=""></a>
-                    </div>
-                    <!-- Ads End -->
+                    
 
                     <!-- Tags End -->
                 </div>
@@ -126,75 +133,7 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-light pt-5 px-sm-3 px-md-5">
-        <div class="row">
-            <div class="col-lg-3 col-md-6 mb-5">
-                <a href="index.html" class="navbar-brand">
-                    <h1 class="mb-2 mt-n2 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
-                </a>
-                <p>Volup amet magna clita tempor. Tempor sea eos vero ipsum. Lorem lorem sit sed elitr sed kasd et</p>
-                <div class="d-flex justify-content-start mt-4">
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-secondary text-center mr-2 px-0" style="width: 38px; height: 38px;" href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="font-weight-bold mb-4">Categories</h4>
-                <div class="d-flex flex-wrap m-n1">
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Sports</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Health</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Education</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Science</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Technology</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Foods</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Entertainment</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Lifestyle</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="font-weight-bold mb-4">Tags</h4>
-                <div class="d-flex flex-wrap m-n1">
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Sports</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Health</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Education</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Science</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Technology</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Foods</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Entertainment</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
-                    <a href="" class="btn btn-sm btn-outline-secondary m-1">Lifestyle</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-5">
-                <h4 class="font-weight-bold mb-4">Quick Links</h4>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>About</a>
-                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Advertise</a>
-                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Privacy & policy</a>
-                    <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Terms & conditions</a>
-                    <a class="text-secondary" href="#"><i class="fa fa-angle-right text-dark mr-2"></i>Contact</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid py-4 px-sm-3 px-md-5">
-        <p class="m-0 text-center">
-            &copy; <a class="font-weight-bold" href="#">Shemachoch</a>. All Rights Reserved. 
-			
-			<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-			Designed by <a class="font-weight-bold" href="https://htmlcodex.com">Behaylu and Fkir</a>
-        </p>
-    </div>
+    @include('user.footer')
     <!-- Footer End -->
 
 
