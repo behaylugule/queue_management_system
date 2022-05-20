@@ -9,14 +9,14 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-use Laravelista\Comments\Commenter;
+
 
 class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
-    use Notifiable, Commenter;
+    use Notifiable;
     use TwoFactorAuthenticatable;
 
     /**
