@@ -32,6 +32,7 @@
   <a href="{{url('updatenews',$news->id)}}" class="btn btn-primary">update</a>
   <a href="{{url('delete_news',$news->id)}}" class="btn btn-danger" onclick="return confirm('are u sure to delete this?')">delete</a>
   </div>
+  <div>@comments(['model' => $news])</div> 
 </div>
  </div>
 </div>
