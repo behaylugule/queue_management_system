@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>AASTU queue management system</title>
-         
-        
-          
-          <!-- Styles -->
-          <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-          <link href="css/fontawesome-all.css" rel="stylesheet">
-          <link href="css/swiper.css" rel="stylesheet">
-          <link href="css/magnific-popup.css" rel="stylesheet">
-          <link href="css/styles.css" rel="stylesheet">	
-        </head>
+  <head>
+  <title>Shemachoch</title>
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="../css/fontawesome-all.css" rel="stylesheet">
+    <link href="../css/swiper.css" rel="stylesheet">
+	<link href="../css/magnific-popup.css" rel="stylesheet">
+	<link href="../css/styles.css" rel="stylesheet">	
+  </head>
   <body>
   @include('user.navbar')
 	        <!-- Top News Slider Start -->
@@ -35,23 +32,14 @@
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
                                 <h3 class="m-0">News</h3>
-                                <form  type="get" action="{{url('/searchnews')}}">
-                                  @csrf
-                                  <div class="input-group">
-                                    <input class="form-outline mr-sm-2" type="search" value = "{{!empty(app('request')->input('query')) ? app('request')->input('query') : '' }}" name="query" placeholder="Search" arail-label="search"/>
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                  </div>
-                                </form>
                              </div>
                         </div>
                         <div class="col-12">
                              <div class="card p-3 py-4">          
                                 @if($news->image)
-                                <img src="newsimage/{{$news->image}}"  class="img-fluid shadow-1-strong rounded" alt="..." >
+                                <img src="../newsimage/{{$news->image}}"  class="img-fluid shadow-1-strong rounded"  alt="..." >
                                 @else
-                                <img src="newsimage/none.jpg"  class="img-fluid shadow-1-strong rounded" alt="..." >
+                                <img src="../newsimage/none.jpg"  class="img-fluid shadow-1-strong rounded" alt="..." >
                                 @endif
                                     <div class="text-center mt-3">
                                         <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
@@ -62,7 +50,7 @@
                                         </div> 
                                     </div>
                             </div>
-                           <div>@comments(['model' => $news])</div> 
+                         
                         </div>
                     </div>
               </div>
@@ -116,7 +104,7 @@
     <!-- News With Sidebar End -->
 
 
-    <!-- Footer Start -->
+   <!-- Footer Start -->
    @include('user.footer')
     <!-- Footer End -->
 
@@ -141,26 +129,26 @@
   
     <!-- //for slider -->
 
-  <script src="js/jquery.min.js"></> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-    <script src="js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-    <script src="js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+  <script src="../js/jquery.min.js"></> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="../js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="../js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="../js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="../js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="../js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="../js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="../js/scripts.js"></script> <!-- Custom scripts -->
  
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../lib/easing/easing.min.js"></script>
+    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="../mail/jqBootstrapValidation.min.js"></script>
+    <script src="../mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
 	</body>
        
 </html>

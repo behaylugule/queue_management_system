@@ -49,7 +49,7 @@
                      @if(count($news)>0)
                         @foreach($news as $new)
                      <div class="col-lg-3 bg-light mr-3 pb-7" >
-                         <a href="{{url('/newsdetail',$new->id)}}" class="text-dark">
+                         <a href="{{url('newsdetail',$new->id)}}" class="text-dark">
                             <div class="row mb-4 border-bottom pb-2">
                                 <div class="col-12">
                                 @if($new->image)
