@@ -44,7 +44,7 @@
                              </div>
                         </div>
                         <div class="col-12">
-                            <div class="card p-3 py-4">          
+                             <div class="card p-3 py-4">          
                                 @if($news->image)
                                 <img src="newsimage/{{$news->image}}"  class="img-fluid shadow-1-strong rounded" alt="..." >
                                 @else
@@ -58,8 +58,9 @@
                                             <p class="fonts">{{$news->description}} </p>        
                                         </div> 
                                     </div>
-                                </div>
                             </div>
+                           <div>@comments(['model' => $news])</div> 
+                        </div>
                     </div>
               </div>
                 
