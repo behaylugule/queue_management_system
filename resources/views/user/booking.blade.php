@@ -38,13 +38,16 @@
   }
 }
 
-</style>
+      </style>
   </head>
-       
+  <body>
+      
+      
     @include('user.navbar')
+    <div >
     <div id="booking" class="section-center">
         <div class="container">
-    @if(session()->has('message'))
+        @if(session()->has('message'))
         <div class="alert alert-success">
           {{session()->get('message')}}
           <button type="button" class="close" data-dismiss="alert">
@@ -93,6 +96,7 @@
             </table>
       </div>
  </div>
+ 
  @if(!$book)
     <div class="col-md-4 col-md-pull-7">
                 
@@ -118,6 +122,16 @@
             </div>
         </div>
       @endif
+
+    </div>
+    
+    
+
+
+    
+
+
+
 		 
 
   <!-- //for header -->	

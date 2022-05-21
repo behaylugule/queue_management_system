@@ -75,24 +75,27 @@
                     <div class="slider-container">
                         <div class="swiper-container image-slider">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                        <img class="img-fluid" src="images/customer-logo-1.png" alt="alternative">
+                                
+                                @if(count($news)>0)
+                                @foreach ($news as $new)
+                                
+                                    
+                                
+                                
+                            <div class="card">
+                                <div class="card-image">
+                                    <img class="img-fluid" src="images/description-1.png" alt="alternative">
                                 </div>
-                                <div class="swiper-slide">
-                                        <img class="img-fluid" src="images/customer-logo-2.png" alt="alternative">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{$new->title}}</h4>
+                                    <p>It's very easy to start creating email lists for your marketing actions. Just create your Tivo account</p>
                                 </div>
-                                <div class="swiper-slide">
-                                        <img class="img-fluid" src="images/customer-logo-3.png" alt="alternative">
-                                </div>
-                                <div class="swiper-slide">
-                                        <img class="img-fluid" src="images/customer-logo-4.png" alt="alternative">
-                                </div>
-                                <div class="swiper-slide">
-                                        <img class="img-fluid" src="images/customer-logo-5.png" alt="alternative">
-                                </div>
-                                <div class="swiper-slide">
-                                        <img class="img-fluid" src="images/customer-logo-6.png" alt="alternative">
-                                </div>
+                            </div>
+                           
+                            <!-- end of card -->
+                            @endforeach
+                            @endif
+                            
                             </div> <!-- end of swiper-wrapper -->
                         </div> <!-- end of swiper container -->
                     </div> <!-- end of slider-container -->
@@ -110,26 +113,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="above-heading">DESCRIPTION</div>
-                    <h2 class="h2-heading">Marketing Automation Will Bring More Qualified Leads</h2>
+                    <div class="above-heading">HEADLINE NEWS</div>
+                    <h2 class="h2-heading">we would like to start your journy with our headline news</h2>
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
             <div class="row">
                 <div class="col-lg-12">
 
                     <!-- Card -->
+                    @if(count($news)>0)
+                        @foreach ($news as $new)
+                            
+                        
                     <div class="card">
                         <div class="card-image">
                             <img class="img-fluid" src="images/description-1.png" alt="alternative">
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title">Lists Builder</h4>
+                            <h4 class="card-title">{{$new->title}}</h4>
                             <p>It's very easy to start creating email lists for your marketing actions. Just create your Tivo account</p>
                         </div>
                     </div>
                     <!-- end of card -->
-
-                    <!-- Card -->
+                    @endforeach
+                    @endif
+                    {{-- <!-- Card -->
                     <div class="card">
                         <div class="card-image">
                             <img class="img-fluid" src="images/description-2.png" alt="alternative">
@@ -151,7 +159,7 @@
                             <p>Tivo collects customer data in order to help you analyse different situations and take required action</p>
                         </div>
                     </div>
-                    <!-- end of card -->
+                    <!-- end of card --> --}}
 
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -175,8 +183,9 @@
 
                     <!-- Tabs Links -->
                     <ul class="nav nav-tabs" id="argoTabs" role="tablist">
+                        if(count)
                         <li class="nav-item">
-                            <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-list"></i>List Builder</a>
+                            <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true"><i class="fas fa-list"></i>{{$new->title}}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false"><i class="fas fa-envelope-open-text"></i>Campaigns</a>
