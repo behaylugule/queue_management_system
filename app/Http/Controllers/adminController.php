@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use App\Models\User;
+use App\Models\Story;
 use App\Models\Item;
 use App\Models\News;
 use App\Models\Time_Table;
@@ -20,6 +21,11 @@ class adminController extends Controller
       }
 
      public function upload(Request $requast){
+       $items = Item::where('name',$requast->name)->first();
+       if($items!==null){
+        return  redirect()->back()->with("message",'Item aready exist');
+ 
+       }
         $item = new Item;
         $item->name=$requast->name;
         $item->price =$requast->price;
@@ -172,16 +178,17 @@ public function getBookingList(){
   $date2 = Carbon::createFromTime(12, 00, 00);
   if($currentTime->hour>12){
      if($currentTime->hour>18){
-      $currentTime2 = $currentTime->diffInHours($date2, false);
+      $currentTime2 = abs($currentTime->diffInHours($date2, false));
      }else{
       $currentTime2 = abs($currentTime->diffInHours($date, false));
      }
     
   }else{
     if($currentTime->hour>6){
-      $currentTime2 = $currentTime->diffInHours($date, false);
+      $currentTime2 = abs($currentTime->diffInHours($date, false));
+      echo $currentTime2;
     }else{
-      $currentTime2 = Carbon::now()->addHours(6)->hour;
+      $currentTime2 = abs(Carbon::now()->addHours(6)->hour);
     }
   }
   if($currentTime2 >= 7){
@@ -199,7 +206,9 @@ public function getBookingList(){
   if($time!=null){
     $books=Booking::where('time_id',$time->id)->get();
   }
-  
+
+  $books=Booking::all();
+ 
 return view('admin.booking_list',compact('books')); 
 
 }
@@ -213,11 +222,17 @@ public function getBookingDetail($id){
    return  view('admin.booking_detail',compact('book','items','totalPrice')); 
 }
 public function finishBooking($id){
+  $story = new Story;
   $book = Booking::find($id);
+  $items = User::find($book->user_id)->items()->get();
+  $story->user_id = $book->user_id;
+  $story->time_id = $book->time_id;
+  foreach($items as $item){
+    $story->items .= $item->name . ",";
+  }
+  $story->item_take_time = Carbon::now()->format("h:i:s");
+  $story->save();
   User::find($book->user_id)->items()->detach();
-  $time = Time_Table::find($book->time_id);
-  $time->count = $time->count - 1;
-  $time->save();
   $book->delete(); 
   return  redirect()->route('booking_list')->with("message",'Checkout is finished!!!');
 }
