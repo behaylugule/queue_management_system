@@ -27,7 +27,7 @@
     right: 0;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    background: rgba(47, 103, 177, 0.6)
+    
 }
 
 
@@ -40,18 +40,22 @@
 
 </style>
   </head>
+    <body>
+      
        
     @include('user.navbar')
-    <div id="booking" class="section-center">
-        <div class="container">
-    @if(session()->has('message'))
-        <div class="alert alert-success">
-          {{session()->get('message')}}
-          <button type="button" class="close" data-dismiss="alert">
-            x
-          </button>
-        </div> 
-       @endif 
+    <div class="container-fluid py-3" style="margin-top:100px">
+      <div class="container mt-lg-4 mt-sm-0">
+        <div id="booking" class="section-center">
+          <div class="container">
+            @if(session()->has('message'))
+              <div class="alert alert-success">
+              {{session()->get('message')}}
+              <button type="button" class="close" data-dismiss="alert">
+                x
+              </button>
+             </div> 
+             @endif 
             <div class="row">
                 <div class="col-md-7 col-md-push-5">
         <div class="table-responsive">       
@@ -93,6 +97,7 @@
             </table>
       </div>
  </div>
+ 
  @if(!$book)
     <div class="col-md-4 col-md-pull-7">
                 
@@ -118,6 +123,11 @@
             </div>
         </div>
       @endif
+    </div>
+      </div>
+      
+        {{-- @include('user.footer') --}}
+     
 		 
 
   <!-- //for header -->	

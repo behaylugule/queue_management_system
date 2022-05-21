@@ -1,7 +1,7 @@
  <!-- Required meta tags -->
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>AASTU queue management system</title>
     <!-- plugins:css -->
     <base href="/public" />
     <link rel="stylesheet" href="admin/assets/vendors/mdi/css/materialdesignicons.min.css">
