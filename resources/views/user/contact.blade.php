@@ -16,54 +16,53 @@
   @include('user.navbar')
 	        <!-- Top News Slider Start -->
 
+   
+    <!-- News With Sidebar End -->
 
-    <!-- News With Sidebar Start -->
-    <div class="container-fluid py-3" style="margin-top:100px">
-    @if(session()->has('message'))
-        <div class="alert alert-success">
-          {{session()->get('message')}}
-          <button type="button" class="close" data-dismiss="alert">
-            x
-          </button>
-        </div> 
-       @endif      
-       <!-- Wrapper container -->
+ <!-- News With Sidebar Start -->
+ <div class="container-fluid py-3" style="margin-top:100px">
+  @if(session()->has('message'))
+      <div class="alert alert-success">
+        {{session()->get('message')}}
+        <button type="button" class="close" data-dismiss="alert">
+          x
+        </button>
+      </div> 
+     @endif      
+     <!-- Wrapper container -->
 <div class="container py-4">
 
 <!-- Bootstrap 5 starter form -->
 <form id="contactForm" >
 
-  <!-- Name input -->
-  <div class="mb-3">
-	<label class="form-label" for="name">Name</label>
-	<input class="form-control" id="name" type="text" placeholder="Name" />
-  </div>
+<!-- Name input -->
+<div class="mb-3">
+<label class="form-label" for="name">Name</label>
+<input class="form-control" id="name" type="text" placeholder="Name" />
+</div>
 
-  <!-- Email address input -->
-  <div class="mb-3">
-	<label class="form-label" for="emailAddress">Email Address</label>
-	<input class="form-control" id="emailAddress" type="email" placeholder="Email Address" />
-  </div>
+<!-- Email address input -->
+<div class="mb-3">
+<label class="form-label" for="emailAddress">Email Address</label>
+<input class="form-control" id="emailAddress" type="email" placeholder="Email Address" />
+</div>
 
-  <!-- Message input -->
-  <div class="mb-3">
-	<label class="form-label" for="message">Message</label>
-	<textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;"></textarea>
-  </div>
+<!-- Message input -->
+<div class="mb-3">
+<label class="form-label" for="message">Message</label>
+<textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;"></textarea>
+</div>
 
-  <!-- Form submit button -->
-  <div class="d-grid">
-	<button class="btn btn-primary btn-sm" type="submit" style="color:black">Submit</button>
-  </div>
+<!-- Form submit button -->
+<div class="d-grid">
+<button class="btn btn-primary btn-sm" type="submit" style="color:black">Submit</button>
+</div>
 
 </form>
 
 </div>
-    </div>
-    
-    <!-- News With Sidebar End -->
-
-
+  </div>
+  
     <!-- Footer Start -->
     @include('user.footer')
     <!-- Footer End -->
