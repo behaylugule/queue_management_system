@@ -28,6 +28,9 @@
     <link href="css/swiper.css" rel="stylesheet">
 	<link href="css/magnific-popup.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	
 	<!-- Favicon  -->
     <link rel="icon" href="images/favicon.png">
@@ -42,7 +45,7 @@
     <header id="header" class="header">
         <div class="header-content">
             <div class="container">
-                <div class="row" align="center">
+                <div class="row" align="center" >
                     <div class="col-lg-6 col-xl-5">
                         <div class="text-container">
                             <h1>Welcome to our Community</h1>
@@ -50,12 +53,28 @@
                             <a class="btn-solid-lg page-scroll" href="{{url('booking')}}">BOOKING</a>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
-                    <div class="col-lg-6 col-xl-7">
-                        <div class="image-container" >
-                            <div class="img-wrapper"  >
-                                <img class="img-fluid" style="border-radius: 20px; padding-top: 30px" src="images/header-software-app.png" alt="alternative">
-                            </div> <!-- end of img-wrapper -->
-                        </div> <!-- end of image-container -->
+                    <div class="col-lg-6 col-xl-7" style="">
+                        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" >
+                                    <img src="images/home.jpg" alt="oil" class="d-block w-100 rounded"  >
+                                </div>
+                                <div class="carousel-item">
+                                     <img src="images/home1.jpg" alt="supermarket" class="d-block w-100" >
+                                </div>
+                                 
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                                 <span class="carousel-control-prev-icon"></span>
+                            </button>
+                             <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                             <span class="carousel-control-next-icon"></span>
+                            </button>
+                        </div>
+                        
+                         <!-- end of image-container -->
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
             </div> <!-- end of container -->
@@ -72,7 +91,7 @@
                 <div class="col-lg-12">
                     
                     <!-- Image Slider -->
-                    <div class="slider-container">
+                    {{-- <div class="slider-container">
                         <div class="swiper-container image-slider">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -95,7 +114,7 @@
                                 </div>
                             </div> <!-- end of swiper-wrapper -->
                         </div> <!-- end of swiper container -->
-                    </div> <!-- end of slider-container -->
+                    </div> <!-- end of slider-container --> --}}
                     <!-- end of image slider -->
 
                 </div> <!-- end of col -->
@@ -110,27 +129,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="above-heading">DESCRIPTION</div>
-                    <h2 class="h2-heading">Marketing Automation Will Bring More Qualified Leads</h2>
+                    <div class="above-heading" style="font-size:40px">Headline news</div>
+                    <h2 class="h2-heading" style="font-size:40px"></h2>
+                    
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
+            
             <div class="row">
                 <div class="col-lg-12">
-
+                @if(count($news)>0)
+                @foreach($news as $new)
                     <!-- Card -->
                     <div class="card">
                         <div class="card-image">
-                            <img class="img-fluid" src="images/description-1.png" alt="alternative">
+                            @if($new->image)
+                            <img class="img-fluid" src="{{$new->image}}" alt="alternative">
+                            @else
+                            <img src="newsimage/none.jpg"  class="img-fluid shadow-1-strong rounded" alt="..." >
+                                @endif 
                         </div>
                         <div class="card-body">
-                            <h4 class="card-title">Lists Builder</h4>
-                            <p>It's very easy to start creating email lists for your marketing actions. Just create your Tivo account</p>
+                            <h4 class="card-title">{{$new->title}}</h4>
+                            {{-- <p>It's very easy to start creating email lists for your marketing actions. Just create your Tivo account</p> --}}
                         </div>
                     </div>
+                    @endforeach
+                        @else
+                          <p class="alert alert-danger"> No News Found</p>
+                        @endif
+                    
                     <!-- end of card -->
 
                     <!-- Card -->
-                    <div class="card">
+                    {{-- <div class="card">
                         <div class="card-image">
                             <img class="img-fluid" src="images/description-2.png" alt="alternative">
                         </div>
@@ -151,7 +182,7 @@
                             <p>Tivo collects customer data in order to help you analyse different situations and take required action</p>
                         </div>
                     </div>
-                    <!-- end of card -->
+                    <!-- end of card --> --}}
 
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -161,7 +192,7 @@
 
 
     <!-- Features -->
-    <div id="features" class="tabs">
+    {{-- <div id="features" class="tabs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -456,7 +487,7 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div> <!-- end of container -->
-    </div> <!-- end of basic-1 -->
+    </div> <!-- end of basic-1 --> --}}
     <!-- end of details -->
 
 
@@ -753,5 +784,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
 </body>
 </html>
