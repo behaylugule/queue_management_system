@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('user.home');
-});
+// Route::get('/', function () {
+//     return view('user.home');
+// });
+Route::get('/', [homeController::class,'home']);
 Route::get('/items', [homeController::class,'getItem']);
 Route::get('/news', [homeController::class,'getNews']);
 Route::get('/newsdetail/{id}',[homeController::class,'newsDetail']);
