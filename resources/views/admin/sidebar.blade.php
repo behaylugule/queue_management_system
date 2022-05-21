@@ -61,5 +61,15 @@
               <span class="menu-title">Booking List</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('story')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Story List</span>
+            </a>
+          </li>
+
         </ul>
       </nav>

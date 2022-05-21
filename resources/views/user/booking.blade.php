@@ -39,7 +39,16 @@
 }
 
 </style>
-  </head>
+<script>
+    function printContent(el){
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+      }
+</script>
+</head>
     <body>
       
        
@@ -58,7 +67,7 @@
              @endif 
             <div class="row">
                 <div class="col-md-7 col-md-push-5">
-        <div class="table-responsive">       
+        <div class="table-responsive" id="book">       
             <table class="table table-striped">
             <thead>
                 <tr>
@@ -96,6 +105,9 @@
             @endif
             </table>
       </div>
+      @if($book)
+       <button class="btn btn-danger" onclick="printContent('book')">Print</button>
+      @endif
  </div>
  
  @if(!$book)

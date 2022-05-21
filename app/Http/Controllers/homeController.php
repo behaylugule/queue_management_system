@@ -16,7 +16,8 @@ class homeController extends Controller
     public function redirect(){
         if(Auth::id()){
            if(Auth::user()->usertype=='0'){
-             return view('user.home');
+            $news = News::orderBy('id','desc')->paginate(3);
+             return view('user.home',compact('news'));
            }
            else{
             return view('admin.home');
@@ -30,7 +31,7 @@ class homeController extends Controller
 
     public function home(){
         $news = News::orderBy('id','desc')->paginate(3);
-    return view('user.home',compact('news'));
+        return view('user.home',compact('news'));
     }
 
     public function getItem(){
