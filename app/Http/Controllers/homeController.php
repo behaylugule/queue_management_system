@@ -28,6 +28,11 @@ class homeController extends Controller
         }
     }
 
+    public function home(){
+        $news = News::orderBy('id','desc')->paginate(3);
+    return view('user.home',compact('news'));
+    }
+
     public function getItem(){
         $items = Item::orderBy('id','desc')->paginate(6);
         $user = Auth::user();
