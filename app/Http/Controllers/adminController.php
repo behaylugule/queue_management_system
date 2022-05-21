@@ -236,4 +236,9 @@ public function finishBooking($id){
   $book->delete(); 
   return  redirect()->route('booking_list')->with("message",'Checkout is finished!!!');
 }
+
+public function story(){
+  $stories = Story::orderBy('created_at','desc')->get();
+  return view('admin.story',compact('stories'));
+}
 }

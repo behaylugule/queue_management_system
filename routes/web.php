@@ -31,6 +31,7 @@ Route::get('/searchnews',[homeController::class,'searchNews']);
 Route::get('/contact', function () {
     return view('user.contact');
 });
+
 Route::get('/home', [homeController::class,'redirect']);
 Route::get('/add_item',[adminController::class,'addItem']);
 Route::post('/upload_item',[adminController::class,'upload']);
@@ -52,8 +53,8 @@ Route::post('/update_user_per_hour/{id}',[adminController::class,'updateUserPerH
 Route::get('/booking_list',[adminController::class,'getBookingList'])->name('booking_list');
 Route::get('/booking_detail/{id}',[adminController::class,'getBookingDetail']);
 Route::get('/booking_finish/{id}',[adminController::class,'finishBooking']);
-
 Route::get('/attach/{id}',[homeController::class,'addToCart']);
+Route::get('/story', [adminController::class,'story']);
 
 
 Route::middleware([
