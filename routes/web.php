@@ -55,7 +55,9 @@ Route::get('/booking_detail/{id}',[adminController::class,'getBookingDetail']);
 Route::get('/booking_finish/{id}',[adminController::class,'finishBooking']);
 Route::get('/attach/{id}',[homeController::class,'addToCart']);
 Route::get('/story', [adminController::class,'story']);
-
+Route::get('/user_list',[adminController::class, 'getUser']);
+Route::get('/addmember/{id}',[adminController::class,'addMember']);
+Route::get('/deleteuser/{id}',[adminController::class,'deleteUser']);
 
 Route::middleware([
     'auth:sanctum',

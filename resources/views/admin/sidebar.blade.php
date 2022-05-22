@@ -4,6 +4,14 @@
           <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <ul class="nav">
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('user_list')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">User List</span>
+            </a>
+          </li>
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('add_item')}}">
               <span class="menu-icon">
