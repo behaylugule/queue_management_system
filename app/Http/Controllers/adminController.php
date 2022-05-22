@@ -115,8 +115,10 @@ class adminController extends Controller
 
       public function deleteNews($id){
         $news = News::find($id);
+        if($news->image){
+          unlink("newsimage/".$news->image);
+        }
         $news->delete();
-        unlink("newsimage/".$news->image);
         return  redirect('/news_list')->with("message",'The item has been deleted sucessfully!'); 
     }
 
@@ -206,8 +208,6 @@ public function getBookingList(){
   if($time!=null){
     $books=Booking::where('time_id',$time->id)->get();
   }
-
-  $books=Booking::all();
  
 return view('admin.booking_list',compact('books')); 
 
@@ -241,4 +241,27 @@ public function story(){
   $stories = Story::orderBy('created_at','desc')->get();
   return view('admin.story',compact('stories'));
 }
+
+public function getUser(){
+  $users = User::where('usertype',false)->get();
+  return view('admin.user_list',compact('users'));
+}
+
+public function addMember($id){
+ $user = User::find($id);
+ $user->ismember = !$user->ismember;
+ $user->save();
+ return  redirect()->back()->with("message",'User has been added to member.');
+}
+public function deleteUser($id){
+  $user = User::find($id);
+  $user->items()->detach();
+  $user->itemsCount()->detach();
+  $book = Booking::where('user_id',$id);
+  $story = Story::where('user_id',$id);
+  $book->delete();
+  $story->delete();
+  $user->delete();
+  return  redirect()->back()->with("message",'User has been deleted successfully');
+ }
 }

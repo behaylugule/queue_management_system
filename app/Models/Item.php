@@ -15,6 +15,6 @@ class Item extends Model
     }
     public function usersCount()
     {
-        return $this->belongsToMany(User::class,'item__user__counts','itemId','userId').withPivot('count');
+        return $this->belongsToMany(User::class,'item__user__counts','itemId','userId');
     }
 }
