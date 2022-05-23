@@ -141,6 +141,7 @@
                 @foreach($news as $new)
                     <!-- Card -->
                     <div class="card">
+                        <a href="{{url('newsdetail',$new->id)}}" class="text-dark">
                         <div class="card-image">
                             @if($new->image)
                             <img class="img-fluid" src="{{$new->image}}" alt="alternative">

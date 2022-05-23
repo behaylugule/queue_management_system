@@ -9,9 +9,7 @@
     </style>
     @include('admin.css') 
     <style>
-        .background{
-            background-color:"white";
-        }
+        
     </style>
      <script>
         function printContent(el){
@@ -24,7 +22,7 @@
      </script> 
   </head>
   <body>
-  <div class="container-scroller ">
+  <div class="container-scroller " style="background-color:white">
      @include('admin.sidebar')
       <!-- partial -->
      @include('admin.navbar')
@@ -40,8 +38,8 @@
             </div> 
         @endif
 
-        <div class="table-responsive " style="background:white; color:black; "  id="table">
-            <table class="table caption-top" style="color:black;">
+        <div class="table-responsive " style="background:black; color:white; "  id="table">
+            <table class="table caption-top" style="color:white;">
             <caption>List of users</caption>
                 <thead  >
                     <tr >
@@ -68,7 +66,7 @@
                   
             </table>
         </div>
-        <button style="background:white; color:black; padding:10px; margin-top:30px;"
+        <button style="background:grey;  color:black; padding:10px; margin-top:30px;"
          onclick="printContent('table')" >Print Content</button>
     </div>
   </div>
