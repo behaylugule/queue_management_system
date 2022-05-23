@@ -15,7 +15,7 @@
      @include('admin.sidebar')
       <!-- partial -->
      @include('admin.navbar')
-     <div class="container-fluid page-body-wrapper" >
+     <div class="container-fluid page-body-wrapper" style="background-color:white" >
      <div class="container" align="center" style="padding-top: 10px;">
      @if(session()->has('message'))
         <div class="alert alert-success">
@@ -28,18 +28,18 @@
        @endif
      <div class="table-responsive">
      <table class="table caption-top" style="color: white;" >
-  <caption>List of users</caption>
-  <thead>
-    <tr  style="background-color: white; font-size:20px;">
-      <th scope="col"  style="color:black; font-size:20px;">Number</th>
-      <th scope="col"  style="color:black; font-size:20px;">Action</th>
+  <caption class="text-white bg-black" style="font-weight:bold; padding:10px">List of users</caption>
+  <thead class="text-white bg-black">
+    <tr  >
+      <th scope="col"  style=" font-size:20px;">Number</th>
+      <th scope="col"  style=" font-size:20px;">Action</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-black">
     <tr>
       <td>{{$number->number}}</td>
       <td>
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <button type="button" class="btn btn-primary text-black" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
    Edit
 </button>
 

@@ -194,7 +194,7 @@ class adminController extends Controller
       public function newsList ()  {
         if(Auth::id()){
           if(Auth::user()->usertype=='1'){
-        $news = News::all();
+        $news = News::orderBy('created_at','desc')->get();
         return  view('admin.news_list',compact('news'));
       } else{
         return redirect()->back();
