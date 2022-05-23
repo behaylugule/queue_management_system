@@ -9,6 +9,8 @@ use App\Models\Time_Table;
 use App\Models\NumberOfUser;
 use App\Models\Booking;
 use App\Models\News;
+use App\Models\Story;
+use App\Models\User;
 
 class homeController extends Controller
 {
@@ -20,7 +22,16 @@ class homeController extends Controller
              return view('user.home',compact('news'));
            }
            else{
-            return view('admin.home');
+            if(Auth::id()){
+                if(Auth::user()->usertype=='1'){
+              $stories = Story::orderBy('created_at','desc')->get();
+              $user = User::all()->count();
+              $item = Item::all()->count();
+              $news = News::all()->count();
+              $booking = Booking::all()->count();
+            
+            
+            return view('admin.home',compact('stories','user','item','news','booking'));}}
            }
         }
         else
