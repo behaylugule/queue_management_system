@@ -9,9 +9,7 @@
     </style>
     @include('admin.css') 
     <style>
-        .background{
-            background-color:"white";
-        }
+        
     </style>
      <script>
         function printContent(el){
@@ -28,7 +26,7 @@
      @include('admin.sidebar')
       <!-- partial -->
      @include('admin.navbar')
-     <div class="container-fluid page-body-wrapper" >
+     <div class="container-fluid page-body-wrapper" style="background-color:white">
      <div class="container" align="center" style="padding-top: 10px;">
         @if(session()->has('message'))
             <div class="alert alert-success">
@@ -40,9 +38,9 @@
             </div> 
         @endif
 
-        <div class="table-responsive " style="background:white; color:black; "  id="table">
-            <table class="table caption-top" style="color:black;">
-            <caption>List of users</caption>
+        <div class="table-responsive " style="background:black; color:black; "  id="table">
+            <table class="table caption-top" style="color:white;">
+            <caption style="font-weight:bold; padding:10px; color:white">List of users</caption>
                 <thead  >
                     <tr >
                     <th scope="col">Full Name (id)</th>
@@ -78,7 +76,7 @@
                   
             </table>
         </div>
-        <button style="background:white; color:black; padding:10px; margin-top:30px;"
+        <button style="background:grey; color:black; padding:10px; margin-top:10px " 
          onclick="printContent('table')" >Print Content</button>
     </div>
   </div>

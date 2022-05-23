@@ -15,11 +15,11 @@
      @include('admin.sidebar')
       <!-- partial -->
      @include('admin.navbar')
-     <div class="container-fluid page-body-wrapper" >
+     <div class="container-fluid page-body-wrapper" style="background-color:white">
      <div class="container" align="center" style="padding-top: 10px;">
-     <div class="table-responsive">
+     <div class="table-responsive" style="background-color:black">
      <table class="table caption-top" style="color: white;" >
-  <caption>List of users</caption>
+  <caption style="font-weight:bold; padding:10px; color:white">List of users</caption>
   <thead>
     <tr  style="background-color: white; font-size:20px;">
       <th scope="col" style="color:black; font-size:20px;">Name</th>

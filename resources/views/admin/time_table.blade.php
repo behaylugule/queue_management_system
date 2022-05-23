@@ -15,7 +15,7 @@
      @include('admin.sidebar')
       <!-- partial -->
      @include('admin.navbar')
-     <div class="container-fluid page-body-wrapper" >
+     <div class="container-fluid page-body-wrapper" style="background-color:white">
      <div class="container" align="center" style="padding-top: 10px;">
      @if(session()->has('message'))
         <div class="alert alert-success">
@@ -26,19 +26,19 @@
           </button>
         </div> 
        @endif
-     <div class="table-responsive">
+     <div class="table-responsive" style="background-color:black">
      <table class="table caption-top" style="color: white;" >
-  <caption>List of users</caption>
+  <caption style="font-weight:bold; color:white; padding:10px">List of users</caption>
   <thead>
-    <tr  style="background-color: white; font-size:20px;">
-      <th scope="col" style="color:black; font-size:20px;">From</th>
-      <th scope="col" style="color:black; font-size:20px;">To</th>
-      <th scope="col"  style="color:black; font-size:20px;">Count</th>
-      <th scope="col"  style="color:black; font-size:20px;">Enable</th>
-      <th scope="col"  style="color:black; font-size:20px;">Action</th>
+    <tr  style=" font-size:20px;">
+      <th scope="col" style=" font-size:20px;">From</th>
+      <th scope="col" style=" font-size:20px;">To</th>
+      <th scope="col"  style=" font-size:20px;">Count</th>
+      <th scope="col"  style=" font-size:20px;">Enable</th>
+      <th scope="col"  style=" font-size:20px;">Action</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="bg-white text-black">
       @foreach($times as $time)
     <tr>
       <td>{{$time->from}}</td>

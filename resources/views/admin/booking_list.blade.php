@@ -15,10 +15,10 @@
      @include('admin.sidebar')
       <!-- partial -->
      @include('admin.navbar')
-     <div class="container-fluid page-body-wrapper" >
+     <div class="container-fluid page-body-wrapper" style="background-color:white" >
      
      <div class="container" align="center" style="padding-top: 10px;">
-     <div class="table-responsive">
+     <div class="table-responsive bg-black" >
      <table class="table caption-top" style="color: white;" >
      @if(session()->has('message'))
         <div class="alert alert-success">
@@ -29,19 +29,19 @@
           </button>
         </div> 
        @endif
-     <caption>List of users</caption>
+     <caption class="bg-black text-white" style="padding:10px; font-weight: bold">List of users</caption>
   <thead>
-    <tr  style="background-color: white; font-size:20px;">
-      <th scope="col" style="color:black; font-size:20px;">Name</th>
-      <th scope="col"  style="color:black; font-size:20px;">Action</th>
+    <tr  class="bg-black text-white">
+      <th scope="col" style=" font-size:20px;">Name</th>
+      <th scope="col"  style=" font-size:20px;">Action</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="text-black">
       @foreach($books as $book)
     <tr>
       <td>{{$book->user->name}}</td>
       <td>
-      <a class="btn btn-success" 
+      <a class="btn btn-success text-black" 
             href="{{url('booking_detail',$book->id)}}">Detail</a>
            </td>
     </tr>

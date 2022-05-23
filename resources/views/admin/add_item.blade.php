@@ -15,7 +15,7 @@
      @include('admin.sidebar')
       <!-- partial -->
      @include('admin.navbar')
-     <div class="container-fluid page-body-wrapper"  align="center">
+     <div class="container-fluid page-body-wrapper"  align="center" style="background-color:white">
     
       <div class="container" align="center" style="padding-top: 100px;">
       @if(session()->has('message'))
@@ -29,16 +29,18 @@
        @endif
       <form action="{{url('upload_item')}}" method="POST" enctype="multipart/form-data">
             @csrf
+            
             <div style="padding:15px">
-              <label for="">Name</label>
+              <label for="" style="color:black">Name</label>
               <input type="text" name="name" style="color:black" placeholder="Write the name" required >
             </div>
             <div style="padding:15px">
-              <label for="">Price</label>
+              <label for="" style="color:black">Price</label>
               <input type="number" style="color:black" name="price" placeholder="Write the price" required>
             </div>
+            
             <div style="padding:15px">
-              <label for="">Catagory</label>
+              <label for="" style="color:black" >Catagory</label>
               <select name="catagory" style="color:black;width:200px" id="" required>
                 <option value="">--Select--</option>
                  <option value="deteregent">Deteregent</option>
@@ -47,21 +49,21 @@
               </select>
             </div>
             <div style="padding:15px">
-              <label for="">Description</label>
-               <textarea name="description" id="" cols="30" rows="5" style="color:black"
+              <label for="" style="color:black">Description</label>
+               <textarea name="description" id="" cols="20" rows="2" style="color:black"
                placeholder="Write description about the item" required></textarea>
             </div>
             <div style="padding:15px">
-              <label for="">Image</label>
+              <label for="" style="color:black">Image</label>
               <input type="file" style="color:black" name="file" >
             </div>
             <div style="padding:15px">
-              <label for="">Booking Type</label>
-              <input type="text" name="bookingtype" style="color:black; width:400px;" placeholder="All, Member, number that the user take" >
+              <label for="" style="color:black">Booking Type</label>
+              <input type="text" name="bookingtype" style="color:black; width:250px;" placeholder="All, Member,..." >
             </div>
 
             <div style="padding:15px">
-              <input type="submit" class="btn btn-success" value="Add Item">
+              <input type="submit" class="btn btn-success" style="color:black; " value="Add Item">
             </div>
          </form>
       </div>
