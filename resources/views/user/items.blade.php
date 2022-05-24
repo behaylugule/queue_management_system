@@ -44,19 +44,52 @@
                         </div>
                         @if(count($items)>0)
                             @foreach($items as $item)
-                                <div class="col-lg-3 bg-light mr-3" >
+                                <div class="col-lg-3 bg-light  mr-3 shadow-md mb-5" align="center">
                                     <div class="position-relative mb-3">
                                         <img class="img-fluid w-100 " style="height:100px;object-fit:contain;" src="itemimage/{{$item->image}}" style="object-fit: cover;">
                                         <div class="overlay position-relative bg-light">
-                                            <h4 class="h4">{{$item->name}}</h4>
-                                            <h6>price:-{{$item->price}}</h6>
-                                            <p class="m-0">{{$item->description}}</p>
+                                            <h4 class="h4 mt-2 ">{{$item->name}}</h4>
+                                            <h6 class="dt">price:-{{$item->price}}</h6>
+                                            @if(!$book)
                                             <a href="{{url('attach',$item->id)}}" 
-                                            class="btn btn-primary mt-5" 
+                                            class="btn btn-primary  mt-2" 
                                             style="pointer-events:{{$book?'none':''}};" >Add to cart</a>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <div class="modal" id="myModal">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+
+                                   
+                                    <div class="modal-header">
+                                         <h4 class="h4">{{$item->name}}</h4>
+                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    
+                                    <div class="modal-body">
+                                           
+                                            <p class="m-0">{{$item->description}}</p>
+                                            <h6 class="dt">price:-{{$item->price}}</h6>
+                                            @if(!$book)
+                                            <a href="{{url('attach',$item->id)}}" 
+                                            class="btn btn-primary  mt-5" 
+                                            style="pointer-events:{{$book?'none':''}};" >Add to cart</a>
+                                            @endif
+                                    </div>
+
+                                   
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger text-dark" data-bs-dismiss="modal">Close</button>
+                                    </div>
+
+                                    </div> 
+                                </div>
+                            </div>
+                            --> 
+                                
                             @endforeach
                         @else
                           <p class="alert alert-danger"> No item Found</p>
@@ -65,11 +98,23 @@
                     {{$items->onEachSide(1)->links()}}
                 </div>
                 
+                
                 <div class="col-lg-4 pt-3 pt-lg-0">
+
+                    <!-- Ads Start -->
+                    <div class="bg-light py-2 px-4 mb-3">
+                        <h3 class="m-0">Open to promo</h3>
+                    </div>
+                    <div class="mb-3 pb-3">
+                        <a href=""><img class="img-fluid" src="img/news-500x280-4.jpg" alt=""></a>
+                    </div>
+
+                    
+                    <!-- Ads End -->
                     <!-- Social Follow Start -->
-                    <div class="pb-3">
+                    <div class="pb-3" >
                         <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Follow Us</h3>
+                            <h3 class="m-0">Follow us</h3>
                         </div>
                         <div class="d-flex mb-3">
                             <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
@@ -87,24 +132,16 @@
                                 <small class="fab fa-instagram mr-2"></small><small>12,345 Followers</small>
                             </a>
                         </div>
-                        <div class="d-flex mb-3">
+                        {{-- <div class="d-flex mb-3">
                             <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #DC472E;">
                                 <small class="fab fa-youtube mr-2"></small><small>12,345 Subscribers</small>
                             </a>
                             <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #1AB7EA;">
                                 <small class="fab fa-vimeo-v mr-2"></small><small>12,345 Followers</small>
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                     <!-- Social Follow End -->
-
-                   
-                    <!-- Ads Start -->
-                    <div class="mb-3 pb-3">
-                        <a href=""><img class="img-fluid" src="img/news-500x280-4.jpg" alt=""></a>
-                    </div>
-                    <!-- Ads End -->
-
                     <!-- Popular News Start -->
                 </div>
             </div>

@@ -48,21 +48,21 @@
                         </div>
                      @if(count($news)>0)
                         @foreach($news as $new)
-                     <div class="col-lg-3 bg-light mr-3 pb-7" >
+                     <div class="col-lg-3 bg-light shadow-md  mr-3  mb-5" align="center" >
                          <a href="{{url('newsdetail',$new->id)}}" class="text-dark">
-                            <div class="row mb-4 border-bottom pb-2">
+                            <div class="row mb-4 ">
                                 <div class="col-12">
                                 @if($new->image)
-                                 <img src="newsimage/{{$new->image}}"  class="img-fluid shadow-1-strong rounded" alt="..." >
+                                 <img src="newsimage/{{$new->image}}"  class="" style="height:200px;width:100%;" alt="..." >
                                     @else
-                                <img src="newsimage/none.jpg"  class="img-fluid shadow-1-strong rounded" alt="..." >
+                                <img src="newsimage/none.jpg"  style="height:200px;width:100%;" alt="..." >
                                 @endif  
                                 </div>
 
                                 <div class="col-9">
                                 <p class="mb-2"><strong>{{$new->title}}</strong></p>
                                 <p>
-                                    <u> {{$new->created_at->format('Y-m-d')}}</u>
+                                    <span class="text-secondary"> {{$new->created_at->format('Y-m-d')}}</span>
                                 </p>
                                 </div>
                             </div>

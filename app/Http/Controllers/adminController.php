@@ -131,7 +131,7 @@ class adminController extends Controller
         $image = $requast->file;
         if($image){
           if($item->image){
-          unlink("itemimage/".$news->image);
+          unlink("itemimage/".$item->image);
           }
            $imagename = time().'.'.$image->getClientoriginalExtension();
            $requast->file->move('itemimage',$imagename);
@@ -515,5 +515,70 @@ public function deleteUser($id){
 {
     return redirect('login');
 } 
+}
+public function searchItems(){
+  if(Auth::id()){
+    if(Auth::user()->usertype=='1'){
+       $search_text = $_GET['query'];
+      $items = Item::where('name','LIKE','%'.$search_text.'%')->get(); 
+     
+      return view('admin.items_list',compact('items'));
+  } else{
+  return redirect()->back();
+ }
+}
+ else
+{
+    return redirect('login');
+}
+}
+public function searchNews(){
+  if(Auth::id()){
+    if(Auth::user()->usertype=='1'){
+       $search_text = $_GET['query'];
+      $news = News::where('title','LIKE','%'.$search_text.'%')->get(); 
+     
+      return view('admin.news_list',compact('news'));
+  } else{
+  return redirect()->back();
+ }
+}
+ else
+{
+    return redirect('login');
+}
+}
+
+public function searchUser(){
+  if(Auth::id()){
+    if(Auth::user()->usertype=='1'){
+       $search_text = $_GET['query'];
+      $users = User::where('name','LIKE','%'.$search_text.'%')->get(); 
+     
+      return view('admin.user_list',compact('users'));
+  } else{
+  return redirect()->back();
+ }
+}
+ else
+{
+    return redirect('login');
+}
+}
+public function searchStory(){
+  if(Auth::id()){
+    if(Auth::user()->usertype=='1'){
+       $search_text = $_GET['query'];
+      $stories = Story::where('name','LIKE','%'.$search_text.'%')->get(); 
+     
+      return view('admin.user_list',compact('stories'));
+  } else{
+  return redirect()->back();
+ }
+}
+ else
+{
+    return redirect('login');
+}
 }
 }

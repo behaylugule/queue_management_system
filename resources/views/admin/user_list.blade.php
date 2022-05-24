@@ -37,8 +37,21 @@
             </button>
             </div> 
         @endif
-
-        <div class="table-responsive " style="background:black; color:black; "  id="table">
+        <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+              <h4 class="text-black p-4 fw-bold fs-5 " >List of User</h4>
+              <form  type="get" action="{{url('/searchuser')}}">
+                    @csrf
+                    <div class="input-group">
+                      <input class="form-outline mr-sm-2 text-black border border-primary" type="search" value = "{{!empty(app('request')->input('query')) ? app('request')->input('query') : '' }}" name="query" placeholder="Search" arail-label="search"/>
+                      <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-search "></i>
+                      </button>
+                    </div>
+                  </form>
+              </div>
+        </div>
+        <div class="table-responsive " style="background:black; color:black; max-height:500px"  id="table">
             <table class="table caption-top" style="color:white;">
             <caption style="font-weight:bold; padding:10px; color:white">List of users</caption>
                 <thead  >

@@ -58,6 +58,11 @@ Route::get('/story', [adminController::class,'story']);
 Route::get('/user_list',[adminController::class, 'getUser']);
 Route::get('/addmember/{id}',[adminController::class,'addMember']);
 Route::get('/deleteuser/{id}',[adminController::class,'deleteUser']);
+Route::get('/searchitemsadmin',[adminController::class,'searchItems']);
+Route::get('/searchnewsadmin',[adminController::class,'searchNews']);
+Route::get('/searchuser',[adminController::class,'searchUser']);
+Route::get('/searchstory',[adminController::class,'searchStory']);
+
 
 Route::middleware([
     'auth:sanctum',

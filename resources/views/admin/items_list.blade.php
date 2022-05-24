@@ -17,9 +17,23 @@
      @include('admin.navbar')
      <div class="container-fluid page-body-wrapper" style="background-color:white">
      <div class="container" align="center" style="padding-top: 10px;">
-     <div class="table-responsive" style="background-color:black">
-     <table class="table caption-top" style="color: white;" >
-  <caption style="font-weight:bold; padding:10px; color:white">List of users</caption>
+     <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+              <h4 class="text-black p-4 fw-bold fs-5 " >List of Items</h4>
+              <form  type="get" action="{{url('/searchitemsadmin')}}">
+                    @csrf
+                    <div class="input-group">
+                      <input class="form-outline mr-sm-2 text-black border border-primary" type="search" value = "{{!empty(app('request')->input('query')) ? app('request')->input('query') : '' }}" name="query" placeholder="Search" arail-label="search"/>
+                      <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-search "></i>
+                      </button>
+                    </div>
+                  </form>
+              </div>
+        </div>
+
+     <div class="table-responsive" style="background-color:black; max-height:500px;">
+     <table class="table " style="color: white;" >
   <thead>
     <tr  style="background-color: white; font-size:20px;">
       <th scope="col" style="color:black; font-size:20px;">Name</th>
