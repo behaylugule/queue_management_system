@@ -26,9 +26,10 @@
           </button>
         </div> 
        @endif
+       <h4 class="text-black p-4 fw-bold fs-5 text-start " >User per hour</h4>
      <div class="table-responsive">
      <table class="table caption-top" style="color: white;" >
-  <caption class="text-white bg-black" style="font-weight:bold; padding:10px">List of users</caption>
+  
   <thead class="text-white bg-black">
     <tr  >
       <th scope="col"  style=" font-size:20px;">Number</th>
