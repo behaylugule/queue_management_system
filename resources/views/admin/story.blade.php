@@ -37,10 +37,10 @@
             </button>
             </div> 
         @endif
-        
+         <h4 class="text-black p-4 fw-bold fs-5 text-start " ></h4>
         <div class="table-responsive " style="background:black; color:white; max-height:500px"   id="table">
             <table class="table caption-top" style="color:white;">
-            <caption>List of story</caption>
+            <caption style="background-color:white; color:black; font-weight:bold; padding:15px"> Story list</caption>
                 <thead >
                     <tr >
                     <th scope="col">Name (id)</th>
@@ -52,7 +52,7 @@
                 <tbody class="table-group-divider">
                 @if(count($stories)>0)
                 @foreach($stories as $story)
-                    <tr>
+                    <tr style="background-color:white;color:black">
                     <th scope="row">{{$story->user->name }} ( {{ $story->user->id}} )</th>
                     <td>{{$story->time->from ." "}} -  {{$story->time->to }}</td>
                     <td>{{$story->items}}</td>

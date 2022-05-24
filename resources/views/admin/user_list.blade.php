@@ -39,7 +39,7 @@
         @endif
         <div class="col-12">
             <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-              <h4 class="text-black p-4 fw-bold fs-5 " >List of User</h4>
+              <h4 class="text-black p-4 fw-bold fs-5 " ></h4>
               <form  type="get" action="{{url('/searchuser')}}">
                     @csrf
                     <div class="input-group">
@@ -53,7 +53,7 @@
         </div>
         <div class="table-responsive " style="background:black; color:black; max-height:500px"  id="table">
             <table class="table caption-top" style="color:white;">
-            <caption style="font-weight:bold; padding:10px; color:white">List of users</caption>
+            <caption style="font-weight:bold; padding:10px; color:black;background-color:white;font-size:20px">List of users</caption>
                 <thead  >
                     <tr >
                     <th scope="col">Full Name (id)</th>
@@ -63,11 +63,11 @@
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody class="table-group-divider">
+                <tbody class="table-group-divider" style="background-color:white; color:black">
                 @if(count($users)>0)
                 @foreach($users as $user)
                     <tr>
-                    <th scope="row">{{$user->name }} ( {{ $user->id}} )</th>
+                    <th scope="row">{{$user->name }} </th>
                     <td>{{$user->occupation}} </td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->created_at}}</td>

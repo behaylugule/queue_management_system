@@ -35,16 +35,17 @@
      <div class="table-responsive" style="background-color:black; max-height:500px;">
      <table class="table " style="color: white;" >
   <thead>
-    <tr  style="background-color: white; font-size:20px;">
-      <th scope="col" style="color:black; font-size:20px;">Name</th>
-      <th scope="col"  style="color:black; font-size:20px;">Price</th>
-      <th scope="col"  style="color:black; font-size:20px;">Catagory</th>
-      <th scope="col"  style="color:black; font-size:20px;">Description</th>
-      <th scope="col"  style="color:black; font-size:20px;">Booking Type</th>
-      <th scope="col"  style="color:black; font-size:20px;">Action</th>
+  
+    <tr  style="background-color: black; font-size:20px;">
+      <th scope="col" style="color:light; font-size:20px;">Name</th>
+      <th scope="col"  style="color:light; font-size:20px;">Price</th>
+      <th scope="col"  style="color:light; font-size:20px;">Catagory</th>
+      <th scope="col"  style="color:light; font-size:20px;">Description</th>
+      <th scope="col"  style="color:light; font-size:20px;">Booking Type</th>
+      <th scope="col"  style="color:light; font-size:20px;">Action</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody style="background-color:white; color:black">
       @foreach($items as $item)
     <tr>
       <td>{{$item->name}}</td>

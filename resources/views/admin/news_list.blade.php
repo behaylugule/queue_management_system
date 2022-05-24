@@ -47,16 +47,16 @@
      <div class="table-responsive " style="background-color:black;max-height:500px">
      <table class="table" style="color: white; " >
   <div class="container" align="center" style="display:flex;padding-top: 10px;">
-  <thead>
-    <tr  style="background-color: white; font-size:20px;">
-      <th scope="col" style="color:black; font-size:20px;">Title</th>
-      <th scope="col"  style="color:black; font-size:20px;">Description</th>
-      <th scope="col"  style="color:black; font-size:20px;">Eligibility</th>
-      <!-- <th scope="col"  style="color:black; font-size:20px;">Image</th> -->
-      <th scope="col"  style="color:black; font-size:20px;">Action</th>
+  <thead >
+    <tr  style="background-color: black; font-size:20px;">
+      <th scope="col" style="color:light; font-size:20px;">Title</th>
+      <th scope="col"  style="color:light; font-size:20px;">Description</th>
+      <th scope="col"  style="color:light; font-size:20px;">Eligibility</th>
+      <!-- <th scope="col"  style="color:light; font-size:20px;">Image</th> -->
+      <th scope="col"  style="color:light; font-size:20px;">Action</th>
     </tr>
   </thead >
-  <tbody>
+  <tbody style="color:black; background-color:white">
 
   @foreach($news as $new)
 

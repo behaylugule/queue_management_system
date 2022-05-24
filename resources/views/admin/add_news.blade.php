@@ -4,7 +4,7 @@
   <style type="text/css">
       label{
         display:inline-block;
-        width:200px;
+        width:150px;
       }
     </style>
     @include('admin.css') 
@@ -31,21 +31,21 @@
        <form action="{{url('create_news')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div style="padding:15px">
-              <label for="" style="color:black">Title</label>
+              <label for="" style="color:black" class="fw-bold">Title</label>
               <input type="text" name="title" style="color:black" placeholder="Write the title" required >
             </div>
             <div style="padding:15px">
-              <label for="" style="color:black">Detail</label>
+              <label for="" style="color:black" class="fw-bold">Detail</label>
                <textarea name="description" id="" cols="20" rows="2" style="color:black"
                placeholder="Write description about the item" required></textarea>
             </div>
             <div style="padding:15px">
-              <label for="" style="color:black">Eligibility</label>
+              <label for="" style="color:black" class="fw-bold">Eligibility</label>
                <textarea name="eligibility" id="" cols="20" rows="2" style="color:black"
                placeholder="Write eligibility of the item" required></textarea>
             </div>
             <div style="padding:15px">
-              <label for="" style="color:black">Image</label>
+              <label for="" style="color:black" class="fw-bold">Image</label>
               <input type="file" style="color:black" name="file" >
             </div>
             <div style="padding:15px">

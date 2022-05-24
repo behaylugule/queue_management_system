@@ -18,7 +18,9 @@
      <div class="container-fluid page-body-wrapper" style="background-color:white" >
      
      <div class="container" align="center" style="padding-top: 10px;">
+      <h4 class="text-black p-4 fw-bold fs-5 text-start " >Booking list</h4>
      <div class="table-responsive bg-black" >
+    
      <table class="table caption-top" style="color: white;" >
      @if(session()->has('message'))
         <div class="alert alert-success">
@@ -29,7 +31,7 @@
           </button>
         </div> 
        @endif
-     <caption class="bg-black text-white" style="padding:10px; font-weight: bold">List of users</caption>
+     {{-- <caption class="bg-black text-white" style="padding:10px; font-weight: bold">List of users</caption> --}}
   <thead>
     <tr  class="bg-black text-white">
       <th scope="col" style=" font-size:20px;">Name</th>
