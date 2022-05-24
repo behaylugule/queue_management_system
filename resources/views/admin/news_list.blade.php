@@ -29,33 +29,47 @@
        @endif 
 
      <div class="container" align="center" style="padding-top: 10px;">
-     <div class="table-responsive" style="background-color:black">
-     <table class="table caption-top" style="color: white;" >
-  <caption style="font-weight:bold; padding:10px; color:white">List of News</caption> 
+     <div class="col-12">
+            <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
+              <h4 class="text-black p-4 fw-bold fs-5 " >List of News</h4>
+              <form  type="get" action="{{url('/searchnewsadmin')}}">
+                    @csrf
+                    <div class="input-group">
+                      <input class="form-outline mr-sm-2 text-black border border-primary" type="search" value = "{{!empty(app('request')->input('query')) ? app('request')->input('query') : '' }}" name="query" placeholder="Search" arail-label="search"/>
+                      <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-search "></i>
+                      </button>
+                    </div>
+                  </form>
+              </div>
+        </div>
 
+     <div class="table-responsive " style="background-color:black;max-height:500px">
+     <table class="table" style="color: white; " >
   <div class="container" align="center" style="display:flex;padding-top: 10px;">
   <thead>
     <tr  style="background-color: white; font-size:20px;">
       <th scope="col" style="color:black; font-size:20px;">Title</th>
       <th scope="col"  style="color:black; font-size:20px;">Description</th>
       <th scope="col"  style="color:black; font-size:20px;">Eligibility</th>
-      <th scope="col"  style="color:black; font-size:20px;">Image</th>
+      <!-- <th scope="col"  style="color:black; font-size:20px;">Image</th> -->
       <th scope="col"  style="color:black; font-size:20px;">Action</th>
     </tr>
-  </thead>
+  </thead >
   <tbody>
 
   @foreach($news as $new)
 
   <tr>
       <td>{{$new->title}}</td>
-      <td>{{$new->description}} birr</td>
+      <td  >
+      <p >{{$new->description}}</p></td>
       <td>{{$new->eligibility}}</td>
-     <td> @if($new->image)
+     <!-- <td> @if($new->image)
   <img src="newsimage/{{$new->image}}" class="card-img-top" alt="..." style="height: 150px;width:150px" >
     @else
     <img src="newsimage/none.jpg" class="card-img-top" alt="..." style="height:150px;">
-  @endif </td>
+  @endif </td> -->
       <td>
       <a href="{{url('single_news',$new->id)}}" class="btn btn-primary" style="width:100px;">Detail</a>
            <a class="btn btn-danger" onclick="return confirm('are u sure to delete this?')"

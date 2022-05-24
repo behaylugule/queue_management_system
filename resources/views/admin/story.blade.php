@@ -37,11 +37,11 @@
             </button>
             </div> 
         @endif
-
-        <div class="table-responsive " style="background:black; color:white; "  id="table">
+        
+        <div class="table-responsive " style="background:black; color:white; max-height:500px"   id="table">
             <table class="table caption-top" style="color:white;">
-            <caption>List of users</caption>
-                <thead  >
+            <caption>List of story</caption>
+                <thead >
                     <tr >
                     <th scope="col">Name (id)</th>
                     <th scope="col">Booking Time</th>

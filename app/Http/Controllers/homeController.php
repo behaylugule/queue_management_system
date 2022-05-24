@@ -78,7 +78,7 @@ class homeController extends Controller
               $user->items()->attach($item);
               return  redirect()->back()->with("message",'Item added in to cart successfully');
             }else{
-              return  redirect()->back()->with("message",'You have to be a member to add this item in your member');
+              return  redirect()->back()->with("message",'You have to be a member to add this item in your cart');
             }
         }elseif($item->bookingtype==="all"){
             $found = false;

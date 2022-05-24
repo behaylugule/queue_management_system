@@ -37,17 +37,19 @@
                         <div class="col-12">
                              <div class="card p-3 py-4">          
                                 @if($news->image)
-                                <img src="../newsimage/{{$news->image}}"  class="img-fluid shadow-1-strong rounded"  alt="..." >
+                                <img src="../newsimage/{{$news->image}}"  class="" style="height:300px;"  alt="..." >
                                 @else
-                                <img src="../newsimage/none.jpg"  class="img-fluid shadow-1-strong rounded" alt="..." >
+                                <img src="../newsimage/none.jpg"  class="" style="height:300px;" alt="..." >
                                 @endif
-                                    <div class="text-center mt-3">
-                                        <span class="bg-secondary p-1 px-4 rounded text-white">Pro</span>
-                                        <h5 class="mt-2 mb-0">{{$news->title}}</h5>
+                                    <div class="text-start mt-3">
+                                        <h5 class="mt-2 mb-4 fs-1 fw-bold">{{$news->title}}</h5>
                                         <span>{{$news->eligibility}}</span>
-                                        <div class="px-4 mt-1">
+                                        <div class=" mt-3">
                                             <p class="fonts">{{$news->description}} </p>        
-                                        </div> 
+                                        </div>
+                                        <p class="text-end">
+                                          <span class="text-secondary fst-italic "> {{$news->created_at->format('Y-m-d, h:i:s')}}</span>
+                                       </p> 
                                     </div>
                             </div>
                          
@@ -55,45 +57,49 @@
                     </div>
               </div>
                 
-                <div class="col-lg-4 pt-3 pt-lg-0">
-                    <!-- Social Follow Start -->
-                    <div class="pb-3">
-                        <div class="bg-light py-2 px-4 mb-3">
-                            <h3 class="m-0">Follow Us</h3>
-                        </div>
-                        <div class="d-flex mb-3">
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
-                                <small class="fab fa-facebook-f mr-2"></small><small>12,345 Fans</small>
-                            </a>
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #52AAF4;">
-                                <small class="fab fa-twitter mr-2"></small><small>12,345 Followers</small>
-                            </a>
-                        </div>
-                        <div class="d-flex mb-3">
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #0185AE;">
-                                <small class="fab fa-linkedin-in mr-2"></small><small>12,345 Connects</small>
-                            </a>
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #C8359D;">
-                                <small class="fab fa-instagram mr-2"></small><small>12,345 Followers</small>
-                            </a>
-                        </div>
-                        <div class="d-flex mb-3">
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #DC472E;">
-                                <small class="fab fa-youtube mr-2"></small><small>12,345 Subscribers</small>
-                            </a>
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #1AB7EA;">
-                                <small class="fab fa-vimeo-v mr-2"></small><small>12,345 Followers</small>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Social Follow End -->
+              <div class="col-lg-4 pt-3 pt-lg-0">
 
-                   
-                    <!-- Ads Start -->
-                    <div class="mb-3 pb-3">
-                        <a href=""><img class="img-fluid" src="img/news-500x280-4.jpg" alt=""></a>
-                    </div>
-                    <!-- Ads End -->
+<!-- Ads Start -->
+<div class="bg-light py-2 px-4 mb-3">
+    <h3 class="m-0">Open to promo</h3>
+</div>
+<div class="mb-3 pb-3">
+    <a href=""><img class="img-fluid" src="../img/news-500x280-4.jpg" alt=""></a>
+</div>
+
+
+<!-- Ads End -->
+<!-- Social Follow Start -->
+<div class="pb-3" >
+    <div class="bg-light py-2 px-4 mb-3">
+        <h3 class="m-0">Follow us</h3>
+    </div>
+    <div class="d-flex mb-3">
+        <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
+            <small class="fab fa-facebook-f mr-2"></small><small>12,345 Fans</small>
+        </a>
+        <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #52AAF4;">
+            <small class="fab fa-twitter mr-2"></small><small>12,345 Followers</small>
+        </a>
+    </div>
+    <div class="d-flex mb-3">
+        <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #0185AE;">
+            <small class="fab fa-linkedin-in mr-2"></small><small>12,345 Connects</small>
+        </a>
+        <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #C8359D;">
+            <small class="fab fa-instagram mr-2"></small><small>12,345 Followers</small>
+        </a>
+    </div>
+    {{-- <div class="d-flex mb-3">
+        <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #DC472E;">
+            <small class="fab fa-youtube mr-2"></small><small>12,345 Subscribers</small>
+        </a>
+        <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #1AB7EA;">
+            <small class="fab fa-vimeo-v mr-2"></small><small>12,345 Followers</small>
+        </a>
+    </div> --}}
+</div>
+<!-- Social Follow End -->
 
                     <!-- Tags End -->
                 </div>
