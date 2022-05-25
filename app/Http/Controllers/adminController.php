@@ -42,6 +42,7 @@ class adminController extends Controller
         $item = new Item;
         $item->name=$requast->name;
         $item->price =$requast->price;
+        $item->max_quantity =$requast->max_quantity;
         $item->catagory=$requast->catagory;
         $item->description = $requast->description;
         $image = $requast->file;
@@ -125,6 +126,7 @@ class adminController extends Controller
         $item->name=$requast->name;
         $item->price =$requast->price;
         $item->catagory=$requast->catagory;
+        $item->max_quantity =$requast->max_quantity;
         $item->description = $requast->description;
         $item->bookingtype = $requast->bookingtype;
          
@@ -368,7 +370,6 @@ public function getBookingList(){
   }else{
     if($currentTime->hour>6){
       $currentTime2 = abs($currentTime->diffInHours($date, false));
-      echo $currentTime2;
     }else{
       $currentTime2 = abs(Carbon::now()->addHours(6)->hour);
     }
@@ -405,12 +406,13 @@ public function getBookingDetail($id){
   if(Auth::id()){
     if(Auth::user()->usertype=='1'){
    $book = Booking::find($id);
-   $items = User::find($book->user_id)->items()->get();
+   $user = User::find($book->user_id);
    $totalPrice = 0;
-   foreach($items as $item){
-      $totalPrice=$totalPrice + (int) $item->price;
+   $totalPrice = 0;
+   foreach( $user->items as $item){
+      $totalPrice=$totalPrice + ((float) $item->price * (int) $item->pivot->quantity);
    }
-   return  view('admin.booking_detail',compact('book','items','totalPrice')); 
+   return  view('admin.booking_detail',compact('book','user','totalPrice')); 
  
   } else{
     return redirect()->back();

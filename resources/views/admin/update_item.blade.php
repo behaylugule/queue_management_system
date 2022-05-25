@@ -33,7 +33,11 @@
             </div>
             <div style="padding:15px">
               <label for="" class="text-black">Price</label>
-              <input type="number" style="color:black" name="price"  value="{{$item->price}}" placeholder="Write the price" required>
+              <input type="text" style="color:black" name="price"  value="{{$item->price}}" placeholder="Write the price" required>
+            </div>
+            <div style="padding:15px">
+              <label for="" class="text-black">Max Quantity</label>
+              <input type="number" style="color:black" name="max_quantity"  value="{{$item->max_quantity}}" placeholder="Write the max quantity" required>
             </div>
             <div style="padding:15px">
               <label for="" class="text-black">Catagory</label>

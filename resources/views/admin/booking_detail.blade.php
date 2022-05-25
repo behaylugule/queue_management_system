@@ -23,21 +23,26 @@
   
   <thead>
     <tr  style="background-color: white; font-size:20px;">
-      <th scope="col" style="color:black; font-size:20px;">Name</th>
-      <th scope="col"  style="color:black; font-size:20px;">Price</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price(1)</th>
+      <th scope="col">quantity</th>
+      <th scope="col">Price(all qu)</th>
     </tr>
+    
   </thead>
   <tbody>
-      @foreach($items as $item)
-    <tr>
-      <td>{{$item->name}}</td>
-      <td>{{$item->price}} birr</td>
-    </tr>
-    @endforeach
+      @foreach($user->items as $item)
       <tr>
-         <th style="font-size:20px;">Total Price</th>
-         <td style="font-size:20px;">{{$totalPrice}} birr</td>      
-        </tr>
+        <td>{{$item->name}}</td>
+        <td>{{$item->price}}</td>
+        <th>{{$item->pivot->quantity}}</th>
+        <th>{{(float)$item->price * (int)$item->pivot->quantity}}</th>      
+      </tr>
+      @endforeach
+      <tr>
+        <td>Total Price</td>
+        <td>{{$totalPrice}}</td>
+      </tr>
         <tr>
         <td>
             <a class="btn btn-danger" onclick="return  confirm('are u sure you want remove the booking?')"

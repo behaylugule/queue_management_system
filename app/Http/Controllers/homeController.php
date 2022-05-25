@@ -63,6 +63,7 @@ class homeController extends Controller
                 return  redirect('/items')->with("message",'The item has been already added to the cart ');
             }
         }
+        $quantity = (int)$request->quantity;
         if($item->bookingtype==='member'){
             if($user->ismember){
                 $found = false;
@@ -75,7 +76,9 @@ class homeController extends Controller
                             'count'=>0
                         ]]);
                     }
-              $user->items()->attach($item);
+              $user->items()->attach([$item->id=>[
+                  'quantity'=>$quantity
+              ]]);
               return  redirect('/items')->with("message",'Item added in to cart successfully');
             }else{
               return  redirect('/items')->with("message",'You have to be a member to add this item in your cart');
@@ -91,7 +94,9 @@ class homeController extends Controller
                         'count'=>0
                     ]]);
                 }
-            $user->items()->attach($item);
+                $user->items()->attach([$item->id=>[
+                    'quantity'=>$quantity
+                ]]);
             return  redirect('/items')->with("message",'Item added in to cart successfully');
         }else{
             $count= null;
@@ -102,7 +107,9 @@ class homeController extends Controller
                     if($count>$bookingtype){
                         return  redirect('/items')->with("message",'You have not allowed to take this item');
                     }else{
-                        $user->items()->attach($item1);
+                        $user->items()->attach([$item->id=>[
+                            'quantity'=>$quantity
+                        ]]);
                         return  redirect('/items')->with("message",'Item added in to cart successfully');           
                     }
                 }
@@ -122,14 +129,13 @@ class homeController extends Controller
         }
         $booking = Booking::where('user_id',$user->id)->first();
         $book = $booking !=null;
-        $items = $user->items;
         $totalPrice = 0;
-        foreach($items as $item){
-           $totalPrice=$totalPrice + (int) $item->price;
+        foreach( $user->items as $item){
+           $totalPrice=$totalPrice + ((float) $item->price * (int) $item->pivot->quantity);
         }
         $times = Time_Table::all();
         $userPerHour = NumberOfUser::all()->first();
-    return view('user.booking',compact('items','totalPrice','times','userPerHour','book','booking'));
+   return view('user.booking',compact('user','totalPrice','times','userPerHour','book','booking'));
 }
 public function removeItemCart($id){
     $user = Auth::user();

@@ -37,7 +37,11 @@
             </div>
             <div style="padding:15px" class="col-3 mr-5">
               <label for="" style="color:black" class="m-2 fw-bold">Price</label>
-              <input type="number" style="color:black" name="price" placeholder="Write the price" required>
+              <input type="text" style="color:black" name="price" placeholder="Write the price" required>
+            </div>
+            <div style="padding:15px" class="col-3 mr-5">
+              <label for="" style="color:black" class="m-2 fw-bold">Max Quantity</label>
+              <input type="number" style="color:black" name="max_quantity" placeholder="Write the maximum quantity" required>
             </div>
           </div>
 
