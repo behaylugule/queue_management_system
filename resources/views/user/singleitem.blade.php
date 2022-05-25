@@ -55,7 +55,6 @@
                                           @csrf
                                           <div class="form-floating">
                                             <select name='quantity' class="form-select px-5 " id="floatingSelectGrid" style="width:auto" aria-label="Floating label select example">
-                                               <option value="1" selected ></option>
                                                @for ($i = 1; $i <= $item->max_quantity; $i++)
                                                <option value="{{$i}}" >{{$i}}</option>
                                                @endfor
