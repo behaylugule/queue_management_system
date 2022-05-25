@@ -54,11 +54,11 @@
                                           <form action="{{url('attach',$item->id)}}"  method="POST">
                                           @csrf
                                           <div class="form-floating">
-                                            <select class="form-select px-5 " id="floatingSelectGrid" style="width:auto" aria-label="Floating label select example">
+                                            <select name='quantity' class="form-select px-5 " id="floatingSelectGrid" style="width:auto" aria-label="Floating label select example">
                                                <option value="1" selected ></option>
-                                               <option value="1" >1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                               @for ($i = 1; $i <= $item->max_quantity; $i++)
+                                               <option value="{{$i}}" >{{$i}}</option>
+                                               @endfor
                                             </select>
                                             <label for="floatingSelectGrid">Quantity</label>
                                             </div>

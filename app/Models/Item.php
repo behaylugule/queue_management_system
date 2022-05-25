@@ -11,10 +11,10 @@ class Item extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('quantity');
     }
     public function usersCount()
     {
-        return $this->belongsToMany(User::class,'item__user__counts','itemId','userId');
+        return $this->belongsToMany(User::class,'item__user__counts','itemId','userId')->withPivot('count');
     }
 }

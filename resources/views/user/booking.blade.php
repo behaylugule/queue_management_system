@@ -72,15 +72,19 @@
             <thead>
                 <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Price</th>
+                <th scope="col">Price(1)</th>
+                <th scope="col">quantity</th>
+                <th scope="col">Price(all qu)</th>
                 <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($items as $item)
+                @foreach($user->items as $item)
                 <tr>
                         <td>{{$item->name}}</td>
                         <td>{{$item->price}}</td>
+                        <th>{{$item->pivot->quantity}}</th>
+                        <th>{{(float)$item->price * (int)$item->pivot->quantity}}</th>
                         @if(!$book)
                           <td>
                               <a class="btn btn-danger" style="pointer-events:{{$book?'none':''}};background-color:{{$book?'gray':''}}"
@@ -120,7 +124,7 @@
                 @csrf    
                 <div class="form-group">
                     <label class="form-label" for='item'>Choose Time</label>
-                    <select class="form-select"  aria-label="select example" name='time' required>
+                    <select class="form-select"  aria-label="select example" name='time' required style="width:auto">
                         @foreach($times as $time)
                         <option value="{{$time->id}}" {{($time->enable)?"":"disabled"}}>{{$time->from}}am -{{$time->to}}am LT {{$userPerHour->number}}</option>
                         @endforeach
