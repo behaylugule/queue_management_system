@@ -58,6 +58,10 @@ class homeController extends Controller
     public function addToCart(Request $request,$id){
         $user = Auth::user();
         $item = Item::find($id);
+        $booking = Booking::where('user_id',$user->id)->first();
+        if($booking!==null){
+            return  redirect('/items')->with("message",'You already booked so you can not add the item to cart.  ');
+        }
         foreach ($user->items as $item1) {
             if($item1->id==$item->id){
                 return  redirect('/items')->with("message",'The item has been already added to the cart ');
