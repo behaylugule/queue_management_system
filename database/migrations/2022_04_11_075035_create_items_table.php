@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('price');
+            $table->decimal('price');
             $table->string('catagory');
             $table->string('description');
             $table->string('image');
+            $table->integer('max_quantity');
             $table->string('bookingtype')->default('All');
             $table->timestamps();
         });

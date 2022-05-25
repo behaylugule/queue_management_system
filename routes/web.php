@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 // });
 Route::get('/', [homeController::class,'home']);
 Route::get('/items', [homeController::class,'getItem']);
+Route::get('/items/{id}', [homeController::class,'getSingleItem']);
 Route::get('/news', [homeController::class,'getNews']);
 Route::get('/newsdetail/{id}',[homeController::class,'newsDetail']);
 Route::get('/booking',  [homeController::class,'getCart']);
@@ -53,7 +54,7 @@ Route::post('/update_user_per_hour/{id}',[adminController::class,'updateUserPerH
 Route::get('/booking_list',[adminController::class,'getBookingList'])->name('booking_list');
 Route::get('/booking_detail/{id}',[adminController::class,'getBookingDetail']);
 Route::get('/booking_finish/{id}',[adminController::class,'finishBooking']);
-Route::get('/attach/{id}',[homeController::class,'addToCart']);
+Route::post('/attach/{id}',[homeController::class,'addToCart']);
 Route::get('/story', [adminController::class,'story']);
 Route::get('/user_list',[adminController::class, 'getUser']);
 Route::get('/addmember/{id}',[adminController::class,'addMember']);

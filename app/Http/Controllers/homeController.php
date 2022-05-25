@@ -55,12 +55,12 @@ class homeController extends Controller
         $book = $booking !=null;
         return view('user.items',compact('items','book'));
     }
-    public function addToCart($id){
+    public function addToCart(Request $request,$id){
         $user = Auth::user();
         $item = Item::find($id);
         foreach ($user->items as $item1) {
             if($item1->id==$item->id){
-                return  redirect()->back()->with("message",'The item has been already added to the cart ');
+                return  redirect('/items')->with("message",'The item has been already added to the cart ');
             }
         }
         if($item->bookingtype==='member'){
@@ -76,9 +76,9 @@ class homeController extends Controller
                         ]]);
                     }
               $user->items()->attach($item);
-              return  redirect()->back()->with("message",'Item added in to cart successfully');
+              return  redirect('/items')->with("message",'Item added in to cart successfully');
             }else{
-              return  redirect()->back()->with("message",'You have to be a member to add this item in your cart');
+              return  redirect('/items')->with("message",'You have to be a member to add this item in your cart');
             }
         }elseif($item->bookingtype==="all"){
             $found = false;
@@ -92,7 +92,7 @@ class homeController extends Controller
                     ]]);
                 }
             $user->items()->attach($item);
-            return  redirect()->back()->with("message",'Item added in to cart successfully');
+            return  redirect('/items')->with("message",'Item added in to cart successfully');
         }else{
             $count= null;
             foreach ($user->itemsCount as $item1) {
@@ -100,10 +100,10 @@ class homeController extends Controller
                     $count= (int) $item1->pivot->count;
                     $bookingtype = (int) $item1->bookingtype;
                     if($count>$bookingtype){
-                        return  redirect()->back()->with("message",'You have not allowed to take this item');
+                        return  redirect('/items')->with("message",'You have not allowed to take this item');
                     }else{
                         $user->items()->attach($item1);
-                        return  redirect()->back()->with("message",'Item added in to cart successfully');           
+                        return  redirect('/items')->with("message",'Item added in to cart successfully');           
                     }
                 }
             }
@@ -205,6 +205,12 @@ public function singleNews($id){
     $news = News::find($id);
     return view('user.newsdetail',compact('news'));
 }
+
+public function getSingleItem($id){
+    $item = Item::find($id);
+    return view('user.singleitem',compact('item'));
+}
+
     /**
      * Display a listing of the resource.
      *
