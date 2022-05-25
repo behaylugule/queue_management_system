@@ -45,18 +45,14 @@
                         @if(count($items)>0)
                             @foreach($items as $item)
                                 <div class="col-lg-3 bg-light  mr-3 shadow-md mb-5" align="center">
-                                    <div class="position-relative mb-3">
+                                 <a href="{{url('items',$item->id)}}"> 
+                                     <div class="position-relative mb-3">
                                         <img class="img-fluid w-100 " style="height:100px;object-fit:contain;" src="itemimage/{{$item->image}}" style="object-fit: cover;">
                                         <div class="overlay position-relative bg-light">
                                             <h4 class="h4 mt-2 ">{{$item->name}}</h4>
-                                            <h6 class="dt">price:-{{$item->price}}</h6>
-                                            @if(!$book)
-                                            <a href="{{url('attach',$item->id)}}" 
-                                            class="btn btn-primary  mt-2" 
-                                            style="pointer-events:{{$book?'none':''}};" >Add to cart</a>
-                                            @endif
                                         </div>
-                                    </div>
+                                      </div>
+                                    </a> 
                                 </div>
                                 <!-- <div class="modal" id="myModal">
                                 <div class="modal-dialog modal-dialog-centered">
