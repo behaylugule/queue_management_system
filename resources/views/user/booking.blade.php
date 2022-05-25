@@ -112,9 +112,10 @@
       @if($book)
        <button class="btn btn-danger" onclick="printContent('book')">Print</button>
       @endif
- </div>
+  </div>
  
  @if(!$book)
+ 
     <div class="col-md-4 col-md-pull-7">
                 
      <div class="card" style="width: 28rem;">
@@ -138,9 +139,11 @@
                 </div>
             </div>
         </div>
+      
       @endif
     </div>
       </div>
+      <
       
         {{-- @include('user.footer') --}}
      
