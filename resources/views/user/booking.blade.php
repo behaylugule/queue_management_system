@@ -59,6 +59,7 @@
              @endif 
             <div class="row">
                 <div class="col-md-7 col-md-push-5">
+
                   <div class="table-responsive" id="book">       
                     <table class="table table-striped">
                     <thead>
@@ -85,6 +86,7 @@
                                   </td>
                                 @endif
                         </tr>
+
                         @endforeach
                     </tbody>
                     <tr>
@@ -119,6 +121,7 @@
                               <option value="{{$time->id}}" {{($time->enable)?"":"disabled"}}>{{$time->from}}am -{{$time->to}}am LT {{$userPerHour->number}}</option>
                               @endforeach
                       </div>
+
                       <div class="form-group" >
                         <input type="submit"  {{($book)?"disabled":""}} class="btn btn-primary" style="background-color:#0275d8;margin-top:20px" value="Book" />
                     </div>
@@ -133,6 +136,7 @@
     </div>
    </div>
   @include('user.footer') 
+
      
   <!-- //for header -->	
   <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
