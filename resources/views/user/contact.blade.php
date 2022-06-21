@@ -21,48 +21,67 @@
 
  <!-- News With Sidebar Start -->
  <div class="container-fluid py-3" style="margin-top:100px">
-  @if(session()->has('message'))
-      <div class="alert alert-success">
-        {{session()->get('message')}}
-        <button type="button" class="close" data-dismiss="alert">
-          x
-        </button>
-      </div> 
-     @endif      
+ @if(session()->has('message'))   
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{session()->get('message')}}                    
+         <button type="button" class="btn-close fs-4" text-align=center data-bs-dismiss="alert" aria-label="Close">x</button>
+      </div>
+
+       
+       @endif    
      <!-- Wrapper container -->
-<div class="container py-4">
+     <div class="row">
+     <div class="col-md-6 col-sm-12 p-4 d-flex align-items-center justify-content-center" >
+          <div class="footer-col last">
+              
+              <ul class="list-unstyled li-space-lg p-small">
+                  <li class="media d-flex justify-content-between mt-5" style="width: 200px; hieght:30px">
+                      <i class="fas fa-map-marker-alt text-primary fs-2 mr-5"></i>
+                      <div class="media-body">Kilinto</div>
+                  </li>
+                  <li class="media d-flex justify-content-between mt-5" style="width: 200px;  hieght:30px">
+                      <i class="fas fa-envelope text-primary fs-2 mr-5"></i>
+                      <div class="media-body"><a class="text-black" href="mailto:contact@tivo.com">contact@aastu.com</a> </div>
+                  </li>
+                  <li class="media d-flex justify-content-between mt-5" style="width: 200px;  hieght:30px">
+                      <i class="fas fa-globe text-primary fs-2 mr-5"></i>
+                      <div class="media-body"><a class="text-black" href="https://www.aastu.edu.et">www.astuque.com</a></div>
+                  </li>
+              </ul>
+          </div> 
+        </div>
+        <div class="col-md-6 col-sm-12 p-4" >
+            <!-- Bootstrap 5 starter form -->
+            <form action="{{url('send_email')}}" method="POST" enctype="multipart/form-data" id="contactForm" >
+            @csrf
+            <!-- Name input -->
+            <div class="mb-3">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-control" id="name" name='name' type="text" placeholder="Name" />
+            </div>
 
-<!-- Bootstrap 5 starter form -->
-<form id="contactForm" >
+            <!-- Email address input -->
+            <div class="mb-3">
+            <label class="form-label" for="emailAddress">Email Address</label>
+            <input class="form-control" id="emailAddress" type="email" name='email' placeholder="Email Address" />
+            </div>
 
-<!-- Name input -->
-<div class="mb-3">
-<label class="form-label" for="name">Name</label>
-<input class="form-control" id="name" type="text" placeholder="Name" />
+            <!-- Message input -->
+            <div class="mb-3">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-control" id="message" name="message" type="text" placeholder="Message" style="height: 10rem;"></textarea>
+            </div>
+
+            <!-- Form submit button -->
+            <div class="d-grid">
+            <button class="btn btn-primary " type="submit" style="color:black; width: 100px;">Submit</button>
+            </div>
+
+            </form>
+        </div>
+       
 </div>
-
-<!-- Email address input -->
-<div class="mb-3">
-<label class="form-label" for="emailAddress">Email Address</label>
-<input class="form-control" id="emailAddress" type="email" placeholder="Email Address" />
 </div>
-
-<!-- Message input -->
-<div class="mb-3">
-<label class="form-label" for="message">Message</label>
-<textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;"></textarea>
-</div>
-
-<!-- Form submit button -->
-<div class="d-grid">
-<button class="btn btn-primary btn-sm" type="submit" style="color:black">Submit</button>
-</div>
-
-</form>
-
-</div>
-  </div>
-  
     <!-- Footer Start -->
     @include('user.footer')
     <!-- Footer End -->

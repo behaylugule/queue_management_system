@@ -48,7 +48,7 @@
                         </div>
                      @if(count($news)>0)
                         @foreach($news as $new)
-                     <div class="col-lg-3 bg-light shadow-md  mr-3  mb-5" align="center" >
+                     <div class="col-lg-3 bg-light shadow-md  m-3  mb-5" align="center" >
                          <a href="{{url('newsdetail',$new->id)}}" class="text-dark">
                             <div class="row mb-4 ">
                                 <div class="col-12">

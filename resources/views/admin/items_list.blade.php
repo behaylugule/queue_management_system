@@ -17,6 +17,12 @@
      @include('admin.navbar')
      <div class="container-fluid page-body-wrapper" style="background-color:white">
      <div class="container" align="center" style="padding-top: 10px;">
+     @if(session()->has('message'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{session()->get('message')}}                    
+         <button type="button" class="btn-close fs-4" text-align=center data-bs-dismiss="alert" aria-label="Close">x</button>
+    </div>
+       @endif 
      <div class="col-12">
             <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
               <h4 class="text-black p-4 fw-bold fs-5 " >List of Items</h4>

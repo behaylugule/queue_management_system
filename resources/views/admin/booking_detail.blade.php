@@ -10,7 +10,7 @@
     @include('admin.css') 
    
   </head>
-  <body>
+  <body  class="bg-light text-black">
     <div class="container-scroller">
      @include('admin.sidebar')
       <!-- partial -->
@@ -22,7 +22,7 @@
   <caption>List of users</caption>
   
   <thead>
-    <tr  style="background-color: white; font-size:20px;">
+    <tr class="bg-black text-white" style="background-color: white; font-size:20px;">
       <th scope="col">Name</th>
       <th scope="col">Price(1)</th>
       <th scope="col">quantity</th>
@@ -30,7 +30,7 @@
     </tr>
     
   </thead>
-  <tbody>
+  <tbody class="bg-light text-black">
       @foreach($user->items as $item)
       <tr>
         <td>{{$item->name}}</td>
@@ -42,10 +42,17 @@
       <tr>
         <td>Total Price</td>
         <td>{{$totalPrice}}</td>
+        <td></td>
+        <td></td>
       </tr>
         <tr>
         <td>
-            <a class="btn btn-danger" onclick="return  confirm('are u sure you want remove the booking?')"
+           
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+        <a class="btn btn-primary" onclick="return  confirm('are u sure you want remove the booking?')"
             href="{{url('booking_finish',$book->id)}}"  >Finish</a>
         </td>
         </tr>

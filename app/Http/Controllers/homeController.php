@@ -11,6 +11,10 @@ use App\Models\Booking;
 use App\Models\News;
 use App\Models\Story;
 use App\Models\User;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\BookingSuccess;
+use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Mail;
 
 class homeController extends Controller
 {
@@ -29,9 +33,10 @@ class homeController extends Controller
               $item = Item::all()->count();
               $news = News::all()->count();
               $booking = Booking::all()->count();
+              $notification = Auth::user()->notifications; 
             
             
-            return view('admin.home',compact('stories','user','item','news','booking'));}}
+            return view('admin.home',compact('stories','user','item','news','booking','notification'));}}
            }
         }
         else
@@ -179,6 +184,10 @@ public function book(Request $request){
   $book->user_id = $user->id;
   $book->time_id =$request->time;
   $book->save();
+  $book->name = $user->fullname;
+  $book->time= $time->from . "-" . $time->to;
+  $admin = User::where('usertype',1)->get();
+  Notification::send($admin, new BookingSuccess($book));
   return  redirect()->back()->with("message",'Booking successful.');           
   
 }
@@ -219,6 +228,16 @@ public function singleNews($id){
 public function getSingleItem($id){
     $item = Item::find($id);
     return view('user.singleitem',compact('item'));
+}
+
+public function sendEmail(Request $request){
+   $data =[
+       'name'=>$request->name,
+       'email'=>$request->email,
+       'message'=>$request->message
+   ];
+   Mail::to('behaylugule@gamil.com')->send(new ContactMail($data));
+   return redirect()->back()->with("message",'Thanks for reachig out.');           
 }
 
     /**

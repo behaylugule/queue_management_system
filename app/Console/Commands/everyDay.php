@@ -51,6 +51,10 @@ class everyDay extends Command
            $time->enable = true;
            $time->save();
         }
+        $admins = User::where('usertype',1)->get();
+        foreach($admins as $admin){
+            $admin->notifications()->delete();
+        }
         Booking::truncate();      
         echo "opration done";
     }

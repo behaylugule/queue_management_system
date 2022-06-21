@@ -17,15 +17,12 @@
      @include('admin.navbar')
     
 <div class="container-fluid page-body-wrapper" style="background-color:white">
-
+<div class="container" align="center" style="padding-top: 10px;">
 @if(session()->has('message'))
-        <div class="alert alert-success">
-         
-          {{session()->get('message')}}
-          <button type="button" class="close" data-dismiss="alert">
-            x
-          </button>
-        </div> 
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{session()->get('message')}}                    
+         <button type="button" class="btn-close fs-4" text-align=center data-bs-dismiss="alert" aria-label="Close">x</button>
+    </div>
        @endif 
 
      <div class="container" align="center" style="padding-top: 10px;">
@@ -73,7 +70,7 @@
       <td>
       <a href="{{url('single_news',$new->id)}}" class="btn btn-primary" style="width:100px;">Detail</a>
            <a class="btn btn-danger" onclick="return confirm('are u sure to delete this?')"
-            href="{{url('delete_item',$new->id)}}">Delete</a>
+            href="{{url('delete_news',$new->id)}}">Delete</a>
       </td>
     </tr>
   @endforeach
@@ -81,7 +78,7 @@
   </table>
  
     
-
+    </div>
  </div>
 </div>
     <!-- container-scroller -->

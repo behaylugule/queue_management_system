@@ -18,12 +18,11 @@
 
       <div class="container" align="center" style="padding-top: 100px;">
       @if(session()->has('message'))
-        <div class="alert alert-success">
-          {{session()->get('message')}}
-          <button type="button" class="close" data-dismiss="alert">
-            x
-          </button>
-        </div> 
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{session()->get('message')}}                    
+         <button type="button" class="btn-close fs-4" text-align=center data-bs-dismiss="alert" aria-label="Close">x</button>
+    </div>
+
        @endif       
       <form action="{{url('update_item',$item->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -37,7 +36,7 @@
             </div>
             <div style="padding:15px">
               <label for="" class="text-black">Max Quantity</label>
-              <input type="number" style="color:black" name="max_quantity"  value="{{$item->max_quantity}}" placeholder="Write the max quantity" required>
+              <input type="number" style="color:black" name="max_quantity" min="1" value="{{$item->max_quantity}}" placeholder="Write the max quantity" required>
             </div>
             <div style="padding:15px">
               <label for="" class="text-black">Catagory</label>
