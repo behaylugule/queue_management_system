@@ -14,13 +14,15 @@ use App\Models\Booking;
 use Carbon\Carbon;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class adminController extends Controller
 {
     public function addItem ()  {
       if(Auth::id()){
         if(Auth::user()->usertype=='1'){
-        return  view('admin.add_item');
+          $notification = Auth::user()->unreadNotifications ; 
+        return  view('admin.add_item',compact('notification'));
         } else{
           return redirect()->back();
          }
@@ -36,8 +38,7 @@ class adminController extends Controller
         if(Auth::user()->usertype=='1'){
        $items = Item::where('name',$requast->name)->first();
        if($items!==null){
-        return  redirect()->back()->with("message",'Item aready exist');
- 
+        return  redirect()->back()->with("message",'Item aready exist'); 
        }
         $item = new Item;
         $item->name=$requast->name;
@@ -71,7 +72,8 @@ class adminController extends Controller
       if(Auth::id()){
         if(Auth::user()->usertype=='1'){
         $items = Item::all();
-        return  view('admin.items_list',compact('items'));
+        $notification = Auth::user()->unreadNotifications ;
+        return  view('admin.items_list',compact('items','notification'));
       } else{
         return redirect()->back();
        }
@@ -107,7 +109,8 @@ class adminController extends Controller
       if(Auth::id()){
         if(Auth::user()->usertype=='1'){
         $item = Item::find($id);
-        return view('admin.update_item',compact('item'));
+        $notification = Auth::user()->unreadNotifications ;
+        return view('admin.update_item',compact('item','notification'));
       } else{
         return redirect()->back();
        }
@@ -181,7 +184,8 @@ class adminController extends Controller
     public function addNews(){
       if(Auth::id()){
         if(Auth::user()->usertype=='1'){
-        return  view('admin.add_news');
+          $notification = Auth::user()->unreadNotifications ;
+        return  view('admin.add_news',compact('notification'));
       
       } else{
         return redirect()->back();
@@ -197,7 +201,8 @@ class adminController extends Controller
         if(Auth::id()){
           if(Auth::user()->usertype=='1'){
         $news = News::orderBy('created_at','desc')->get();
-        return  view('admin.news_list',compact('news'));
+        $notification = Auth::user()->unreadNotifications ;
+        return  view('admin.news_list',compact('news','notification'));
       } else{
         return redirect()->back();
        }
@@ -212,7 +217,8 @@ class adminController extends Controller
         if(Auth::id()){
           if(Auth::user()->usertype=='1'){
         $news = News::find($id);
-        return  view('admin.singlenews',compact('news'));
+        $notification = Auth::user()->unreadNotifications ;
+        return  view('admin.singlenews',compact('news','notification'));
       } else{
         return redirect()->back();
        }
@@ -231,7 +237,7 @@ class adminController extends Controller
           unlink("newsimage/".$news->image);
         }
         $news->delete();
-        return  redirect('/news_list')->with("message",'The item has been deleted sucessfully!'); 
+        return  redirect('/news_list')->with("message",'The news has been deleted sucessfully!'); 
       } else{
         return redirect()->back();
        }
@@ -246,7 +252,8 @@ class adminController extends Controller
       if(Auth::id()){
         if(Auth::user()->usertype=='1'){
       $news = News::find($id);
-      return view('admin.update_news',compact('news'));
+      $notification = Auth::user()->unreadNotifications ;
+      return view('admin.update_news',compact('news','notification'));
     } else{
       return redirect()->back();
      }
@@ -262,7 +269,7 @@ class adminController extends Controller
     if(Auth::id()){
       if(Auth::user()->usertype=='1'){
     $news = News::find($id);
-
+  
     $news->title=$requast->title;
     $news->description =$requast->description;
     $news->eligibility=$requast->eligibility;
@@ -292,7 +299,8 @@ public function getTimeTable(){
   if(Auth::id()){
     if(Auth::user()->usertype=='1'){
   $times = Time_Table::all();
-  return view('admin.time_table',compact('times'));
+  $notification = Auth::user()->unreadNotifications ;
+  return view('admin.time_table',compact('times','notification'));
 } else{
   return redirect()->back();
  }
@@ -325,7 +333,8 @@ public function getUserPerHour(){
     if(Auth::user()->usertype=='1'){
   $numbers = NumberOfUser::all();
   $number = $numbers->first();
-  return view('admin.userperhour',compact('number'));
+  $notification = Auth::user()->unreadNotifications ;
+  return view('admin.userperhour',compact('number','notification'));
 } else{
   return redirect()->back();
  }
@@ -356,6 +365,7 @@ public function updateUserPerHour(Request $requast,$id){
 public function getBookingList(){
   if(Auth::id()){
     if(Auth::user()->usertype=='1'){
+      $notification = Auth::user()->unreadNotifications ;
   $currentTime = Carbon::now();
   $time2 = Carbon::now()->minute;
   $date = Carbon::createFromTime(6, 00, 00);
@@ -389,8 +399,8 @@ public function getBookingList(){
   if($time!=null){
     $books=Booking::where('time_id',$time->id)->get();
   }
- 
-return view('admin.booking_list',compact('books')); 
+  $books = Booking::all(); 
+return view('admin.booking_list',compact('books','notification')); 
  
 } else{
   return redirect()->back();
@@ -412,7 +422,8 @@ public function getBookingDetail($id){
    foreach( $user->items as $item){
       $totalPrice=$totalPrice + ((float) $item->price * (int) $item->pivot->quantity);
    }
-   return  view('admin.booking_detail',compact('book','user','totalPrice')); 
+   $notification = Auth::user()->unreadNotifications ;
+   return  view('admin.booking_detail',compact('book','user','totalPrice','notification')); 
  
   } else{
     return redirect()->back();
@@ -437,6 +448,13 @@ public function finishBooking($id){
   $story->item_take_time = Carbon::now()->format("h:i:s");
   $story->save();
   User::find($book->user_id)->items()->detach();
+  DB::table('notifications')->where('data->user_id',$book->user_id)->delete();
+//   $notification = DB::table('notifications')::get();
+// foreach($notification as $notify) {
+//   if(json_decode($notify->data)->ticket_id== $id) {
+//       $notify->delete();
+//   }
+// }
   $book->delete(); 
   return  redirect()->route('booking_list')->with("message",'Checkout is finished!!!');
 
@@ -453,8 +471,9 @@ public function finishBooking($id){
 public function story(){
   if(Auth::id()){
     if(Auth::user()->usertype=='1'){
+      $notification = Auth::user()->unreadNotifications ;
   $stories = Story::orderBy('created_at','desc')->get();
-  return view('admin.story',compact('stories'));
+  return view('admin.story',compact('stories','notification'));
 
 } else{
   return redirect()->back();
@@ -470,7 +489,8 @@ public function getUser(){
   if(Auth::id()){
     if(Auth::user()->usertype=='1'){
   $users = User::where('usertype',false)->get();
-  return view('admin.user_list',compact('users'));
+  $notification = Auth::user()->unreadNotifications ;
+  return view('admin.user_list',compact('users','notification'));
 } else{
   return redirect()->back();
  }
@@ -523,8 +543,8 @@ public function searchItems(){
     if(Auth::user()->usertype=='1'){
        $search_text = $_GET['query'];
       $items = Item::where('name','LIKE','%'.$search_text.'%')->get(); 
-     
-      return view('admin.items_list',compact('items'));
+      $notification = Auth::user()->unreadNotifications ;
+      return view('admin.items_list',compact('items','notification'));
   } else{
   return redirect()->back();
  }
@@ -539,8 +559,8 @@ public function searchNews(){
     if(Auth::user()->usertype=='1'){
        $search_text = $_GET['query'];
       $news = News::where('title','LIKE','%'.$search_text.'%')->get(); 
-     
-      return view('admin.news_list',compact('news'));
+      $notification = Auth::user()->unreadNotifications ;
+      return view('admin.news_list',compact('news','notification'));
   } else{
   return redirect()->back();
  }
@@ -556,8 +576,8 @@ public function searchUser(){
     if(Auth::user()->usertype=='1'){
        $search_text = $_GET['query'];
       $users = User::where('name','LIKE','%'.$search_text.'%')->get(); 
-     
-      return view('admin.user_list',compact('users'));
+      $notification = Auth::user()->unreadNotifications ;
+      return view('admin.user_list',compact('users','notification'));
   } else{
   return redirect()->back();
  }
@@ -573,7 +593,7 @@ public function searchStory(){
        $search_text = $_GET['query'];
       $stories = Story::where('name','LIKE','%'.$search_text.'%')->get(); 
      
-      return view('admin.user_list',compact('stories'));
+      return view('admin.user_list',compact('stories','notification'));
   } else{
   return redirect()->back();
  }

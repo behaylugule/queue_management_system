@@ -6,6 +6,7 @@
     <base href="/public" />
     <link rel="stylesheet" href="admin/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="admin/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="admin/assets/css/my.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="admin/assets/vendors/jvectormap/jquery-jvectormap.css">
@@ -21,4 +22,5 @@
 
     <!-- End layout styles -->
     <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
+    
     

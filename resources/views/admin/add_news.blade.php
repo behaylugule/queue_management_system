@@ -19,13 +19,10 @@
      
       <div class="container" align="center" style="padding-top: 100px;">
       @if(session()->has('message'))
-        <div class="alert alert-success">
-         
-          {{session()->get('message')}}
-          <button type="button" class="close" data-dismiss="alert">
-            x
-          </button>
-        </div> 
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{session()->get('message')}}                    
+         <button type="button" class="btn-close fs-4" text-align=center data-bs-dismiss="alert" aria-label="Close">x</button>
+      </div>
        @endif
        
        <form action="{{url('create_news')}}" method="POST" enctype="multipart/form-data">
@@ -49,7 +46,7 @@
               <input type="file" style="color:black" name="file" >
             </div>
             <div style="padding:15px">
-              <input type="submit" class="btn btn-success" value="Add Item" style="color:black">
+              <input type="submit" class="btn btn-success" value="Add News" style="color:black">
             </div>
          </form>
    </div>

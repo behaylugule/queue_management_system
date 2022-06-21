@@ -44,7 +44,7 @@
                         </div>
                         @if(count($items)>0)
                             @foreach($items as $item)
-                                <div class="col-lg-3 bg-light  mr-3 shadow-md mb-5" align="center">
+                                <div class="col-lg-3 bg-light  mr-3 shadow-md mb-5 " align="center">
                                  <a href="{{url('items',$item->id)}}"> 
                                      <div class="position-relative mb-3">
                                         <img class="img-fluid w-100 " style="height:100px;object-fit:contain;" src="itemimage/{{$item->image}}" style="object-fit: cover;">

@@ -1,0 +1,15 @@
+.my{
+    transform:translateX(0px);
+}
+.scrollnotif {
+    display:block;
+    padding:5px;
+    margin-top:5px;
+    height:400px;
+    overflow:scroll;
+ }
+@media screen and (min-width: 480px) {
+    .my {
+        transform:translateX(-200px);
+    }
+  }

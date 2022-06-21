@@ -19,13 +19,11 @@
      
       <div class="container" align="center" style="padding-top: 100px;">
       @if(session()->has('message'))
-        <div class="alert alert-success">
-         
-          {{session()->get('message')}}
-          <button type="button" class="close" data-dismiss="alert">
-            x
-          </button>
-        </div> 
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{session()->get('message')}}                    
+         <button type="button" class="btn-close fs-4" text-align=center data-bs-dismiss="alert" aria-label="Close">x</button>
+      </div>
+
        @endif
        
        <form action="{{url('update_news',$news->id)}}" method="POST" enctype="multipart/form-data">

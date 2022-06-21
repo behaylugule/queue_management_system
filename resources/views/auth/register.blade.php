@@ -36,15 +36,11 @@
 <!-- Preloader -->
 @include('user.navbar')
     <!-- end of navigation -->
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
+<x-guest-layout >
+    <x-jet-authentication-card >
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" style="margin-top:150px">
             @csrf
             <div>
                 <x-jet-label for="fullname" value="{{ __('Fullname') }}" />
@@ -109,6 +105,9 @@
         </form>
     </x-jet-authentication-card>
  </x-guest-layout>
+    <!-- Footer Start -->
+    @include('user.footer')
+    <!-- Footer End -->
 <!-- Scripts -->
 <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->

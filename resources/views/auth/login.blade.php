@@ -39,10 +39,6 @@
     <!-- end of navigation -->
 <x-guest-layout>
     <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
         <x-jet-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -85,6 +81,9 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+   <!-- Footer Start -->
+   @include('user.footer')
+    <!-- Footer End -->
 <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
     <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
     <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->

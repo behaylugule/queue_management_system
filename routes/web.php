@@ -63,7 +63,7 @@ Route::get('/searchitemsadmin',[adminController::class,'searchItems']);
 Route::get('/searchnewsadmin',[adminController::class,'searchNews']);
 Route::get('/searchuser',[adminController::class,'searchUser']);
 Route::get('/searchstory',[adminController::class,'searchStory']);
-
+Route::post('/send_email',[homeController::class,'sendEmail']);
 
 Route::middleware([
     'auth:sanctum',

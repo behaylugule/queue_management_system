@@ -23,13 +23,12 @@
     
      <table class="table caption-top" style="color: white;" >
      @if(session()->has('message'))
-        <div class="alert alert-success">
-         
-          {{session()->get('message')}}
-          <button type="button" class="close" data-dismiss="alert">
-            x
-          </button>
-        </div> 
+     <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{session()->get('message')}}                    
+         <button type="button" class="btn-close fs-4" text-align=center data-bs-dismiss="alert" aria-label="Close">x</button>
+    </div>
+
+
        @endif
      {{-- <caption class="bg-black text-white" style="padding:10px; font-weight: bold">List of users</caption> --}}
   <thead>
@@ -38,9 +37,9 @@
       <th scope="col"  style=" font-size:20px;">Action</th>
     </tr>
   </thead>
-  <tbody class="text-black">
+  <tbody class="bg-light text-black">
       @foreach($books as $book)
-    <tr>
+    <tr >
       <td>{{$book->user->name}}</td>
       <td>
       <a class="btn btn-success text-black" 

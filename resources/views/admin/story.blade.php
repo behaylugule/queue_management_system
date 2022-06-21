@@ -29,13 +29,11 @@
      <div class="container-fluid page-body-wrapper" >
      <div class="container" align="center" style="padding-top: 10px;">
         @if(session()->has('message'))
-            <div class="alert alert-success">
-            
-            {{session()->get('message')}}
-            <button type="button" class="close" data-dismiss="alert">
-                x
-            </button>
-            </div> 
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{session()->get('message')}}                    
+         <button type="button" class="btn-close fs-4" text-align=center data-bs-dismiss="alert" aria-label="Close">x</button>
+        </div>
+
         @endif
          <h4 class="text-black p-4 fw-bold fs-5 text-start " ></h4>
         <div class="table-responsive " style="background:black; color:white; max-height:500px"   id="table">
