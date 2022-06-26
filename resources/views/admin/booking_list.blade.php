@@ -41,7 +41,7 @@
   <tbody class="text-black">
       @foreach($books as $book)
     <tr>
-      <td>{{$book->user->name}}</td>
+      <td >{{$book->user->name}}</td>
       <td>
       <a class="btn btn-success text-black" 
             href="{{url('booking_detail',$book->id)}}">Detail</a>
