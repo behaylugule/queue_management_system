@@ -113,7 +113,7 @@ class homeController extends Controller
                 if($item1->id==$id){
                     $count= (int) $item1->pivot->count;
                     $bookingtype = (int) $item1->bookingtype;
-                    if($count>$bookingtype){
+                    if($count>=$bookingtype){
                         return  redirect('/items')->with("message",'You have not allowed to take this item');
                     }else{
                         $user->items()->attach([$item->id=>[
@@ -128,7 +128,7 @@ class homeController extends Controller
                 'count'=>0
             ]]);
             $user->items()->attach($item);
-            return  redirect()->back()->with("message",'Item added in to cart successfully');           
+            return  redirect()->back()->with("message",'Item added in to cart successfully');              
        }
     }
     public function getCart() {

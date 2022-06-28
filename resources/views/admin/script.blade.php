@@ -19,3 +19,5 @@
     <script src="admin/assets/js/dashboard.js"></script>
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <!-- End custom js for this page -->
+
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>

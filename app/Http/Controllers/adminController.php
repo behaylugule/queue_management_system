@@ -365,41 +365,41 @@ public function updateUserPerHour(Request $requast,$id){
 public function getBookingList(){
   if(Auth::id()){
     if(Auth::user()->usertype=='1'){
-      $notification = Auth::user()->unreadNotifications ;
-  $currentTime = Carbon::now();
-  $time2 = Carbon::now()->minute;
-  $date = Carbon::createFromTime(6, 00, 00);
-  $date2 = Carbon::createFromTime(12, 00, 00);
-  if($currentTime->hour>12){
-     if($currentTime->hour>18){
-      $currentTime2 = abs($currentTime->diffInHours($date2, false));
-     }else{
-      $currentTime2 = abs($currentTime->diffInHours($date, false));
-     }
+     $notification = Auth::user()->unreadNotifications ;
+  // $currentTime = Carbon::now();
+  // $time2 = Carbon::now()->minute;
+  // $date = Carbon::createFromTime(6, 00, 00);
+  // $date2 = Carbon::createFromTime(12, 00, 00);
+  // if($currentTime->hour>12){
+  //    if($currentTime->hour>18){
+  //     $currentTime2 = abs($currentTime->diffInHours($date2, false));
+  //    }else{
+  //     $currentTime2 = abs($currentTime->diffInHours($date, false));
+  //    }
     
-  }else{
-    if($currentTime->hour>6){
-      $currentTime2 = abs($currentTime->diffInHours($date, false));
-    }else{
-      $currentTime2 = abs(Carbon::now()->addHours(6)->hour);
-    }
-  }
-  if($currentTime2 >= 7){
-   if($time2>=30){
-    $from = strval($currentTime2).':30:00';
-   }else{
-    $from = strval($currentTime2-1).':30:00';
-   }
-  }else{
-  $from = strval($currentTime2).':00:00';
-  }
+  // }else{
+  //   if($currentTime->hour>6){
+  //     $currentTime2 = abs($currentTime->diffInHours($date, false));
+  //   }else{
+  //     $currentTime2 = abs(Carbon::now()->addHours(6)->hour);
+  //   }
+  // }
+  // if($currentTime2 >= 7){
+  //  if($time2>=30){
+  //   $from = strval($currentTime2).':30:00';
+  //  }else{
+  //   $from = strval($currentTime2-1).':30:00';
+  //  }
+  // }else{
+  // $from = strval($currentTime2).':00:00';
+  // }
   
-  $time = Time_Table::where('from', '=', $from)->first();
-  $books = [];
-  if($time!=null){
-    $books=Booking::where('time_id',$time->id)->get();
-  }
-  $books = Booking::all(); 
+  // $time = Time_Table::where('from', '=', $from)->first();
+  // $books = [];
+  // if($time!=null){
+  //   $books=Booking::where('time_id',$time->id)->get();
+  // }
+  $books = Booking::orderBy("time_id", "asc")->get(); 
 return view('admin.booking_list',compact('books','notification')); 
  
 } else{
@@ -449,12 +449,6 @@ public function finishBooking($id){
   $story->save();
   User::find($book->user_id)->items()->detach();
   DB::table('notifications')->where('data->user_id',$book->user_id)->delete();
-//   $notification = DB::table('notifications')::get();
-// foreach($notification as $notify) {
-//   if(json_decode($notify->data)->ticket_id== $id) {
-//       $notify->delete();
-//   }
-// }
   $book->delete(); 
   return  redirect()->route('booking_list')->with("message",'Checkout is finished!!!');
 
